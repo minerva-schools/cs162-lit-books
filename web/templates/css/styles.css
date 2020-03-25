@@ -166,7 +166,7 @@ form.bookbar button {
   float: left;
   width: 20%;
   padding: 18px;
-  background: #222831;
+  background: #00adb5;
   color: white;
   font-size: 20px;
   border: none;
@@ -176,7 +176,7 @@ form.bookbar button {
 }
 
 form.bookbar button:hover {
-  background: #00adb5;
+  background: #222831;
 }
 
 form.bookbar::after {
