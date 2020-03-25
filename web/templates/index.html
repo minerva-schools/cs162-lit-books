@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <title>CS162 Final Project</title>
+  <meta charset="utf-8" />
+  <title>Paper Trail</title>
+  <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
-    <p>Hello World!</p>
+
+  <!--navigation bar-->
+  <div class="topnav" id="myTopnav">
+    <a href="index.html" class="active">Paper Trail</a>
+    <a href="#my page">My Page</a>
+    <a href="about.html">About</a>
+    <a href="#sample">Sample</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <!--javascript-->
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+
+  <!--Book ID bar-->
+  <p>
+    <br><br><br><br><br><br><br><br><br><br>
+    <h1>Paper Trail</h1>
+    <form class="bookbar" action="/action_page.php" style="margin:auto;max-width:400px">
+      <input type="text" placeholder="Your Book ID..." name="search2">
+      <button type="submit"><i class="fa fa-paper-plane"></i></button>
+    </form>
+    <h3><a href="about.html">Don't have a Book ID?</a></h3>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!--footer-->
+    <h4>©️2020 Paper Trail. All Rights Reserved.</h4>
+  </p>
+
 </body>
+
 </html>
