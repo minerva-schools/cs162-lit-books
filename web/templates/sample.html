@@ -1,15 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <title>CS162 Final Project</title>
+  <meta charset="utf-8" />
+  <title>Paper Trail</title>
+  <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
-    <h1> All registered users: </h1>
-    <ul>
-    {% for user in users %}
-        <li>{{ user.name }}</li>
-    {% endfor %}
-    </ul>
+
+  <!--navigation bar-->
+  <div class="topnav" id="myTopnav">
+    <a href="index.html" class="active">Paper Trail</a>
+    <a href="users.html">My Page</a>
+    <a href="about.html">About</a>
+    <a href="sample.html">Sample</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <!--javascript-->
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+  <br><br>
+  <h1>Milk and Honey</h1>
+  <h3>by Rupi Kaur</h3>
+
+
+  <div id="wrapper">
+    <a href="#" class="button" style=margin:10px>I'm a new book reciever 😀</a>
+  </div>
+
+  <div id="wrapper">
+    <a href="#" class="button" style=margin:10px>I finish reading the book! 😎</a>
+  </div>
+
+<br><br>
+
+  <div class="comment_section">
+    <br>
+    <div class="comment">
+
+      <h5>Elena Cai</h5> | <h6>January 15, 2021 </h6>
+      <hr>
+      我看到这本书时，并没有想到它会给我带来这么大的触动。它是通过一个包裹邮寄到我家的，黑色的封皮上写着简单的五个字：牛奶与蜂蜜。milk and honey. 就是这么简单。它是关于什么的呢，一句话很难说清。关于爱情，关于治愈，关于寻找自我，关于生命的意义。
+
+每一页都是一篇小诗，或是一篇不长的短文。从遭遇伤痛，到自我治愈，作者用简单的笔调描绘了她的心理历程，也开创了人们对于诗歌的新印象。读起来非常顺畅，而每一句话却意味深长。初读这本书，觉得它的文字，实在有些露骨，过半后发现，那行行文字间，是作者想传递的关于爱和生命的颂歌与呼喊，而那，怎么露骨都不为过。很佩服这本书的译者，将英文原文翻译地那么流畅而不失韵味，每一句中文的押韵，都不禁让人拍手叫好。
+    </div>
+
+    <br>
+
+
+    <div class="comment">
+
+      <h5>Sho</h5> | <h6>March 4, 2020 </h6>
+      <hr>
+      本書をご覧になった際に、これが私たちの家に送られることを思いもしませんでした。 はちみつ。 これは、治療の観点、私たちの観点、生命の観点から明らかです。
+
+いずれも痛みを経験し、私たちの治療法になり、作者は自分の心理的な手順を説明し、歌に対する新しい印象を与えました。 この本を最初に読んで、その文字を取得し、いくつかの骨で実際に実行され、その間文字列を実行します。 この本の著者は、すべての人に拍手を送ることです。
+</div>
+
+<br>
+
+<div class="comment">
+
+  <h5>Helena Mance</h5> | <h6>Febrary 21, 2020 </h6>
+  <hr>
+  To whom this book gets to: <br><br>
+
+Thanks for your curiosity. This book is a gift from my best friend to me on the topic of love. It has helped her get out of a breakup last summer, and I hope it may help you in whatever way it can. Whether you are in love, or enjoying being single, I wish the strength and hope of this book can enlighten you and empower you even more. Don’t forget to share this book after reading it.
+
+<br><br>Sending love,
+<br>Helena Mance
+</div>
+
+<br>
+
+<!--footer-->
+    <h4>©️2020 Paper Trail. All Rights Reserved.</h4>
+  </p>
+
+
+  </div>
+
+
 </body>
 </html>

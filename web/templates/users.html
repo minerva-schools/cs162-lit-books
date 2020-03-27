@@ -3,13 +3,42 @@
 <head>
     <meta charset="utf-8" />
     <title>CS162 Final Project</title>
+    <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+
 </head>
 <body>
+    <!--given by Prof
     <h1> All registered users: </h1>
     <ul>
     {% for user in users %}
         <li>{{ user.name }}</li>
     {% endfor %}
     </ul>
+    -->
+
+    <!--navigation bar-->
+    <div class="topnav" id="myTopnav">
+      <a href="index.html" class="active">Paper Trail</a>
+      <a href="users.html">My Page</a>
+      <a href="about.html">About</a>
+      <a href="sample.html">Sample</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <!--javascript-->
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+
 </body>
 </html>
