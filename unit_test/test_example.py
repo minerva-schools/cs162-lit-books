@@ -28,13 +28,13 @@ def test_empty_db(client):
     assert b'Hello World!' in rv.data
 
 def login(client, username, password):
-        return client.post('/login', data=dict(
-        username="sho",
-        password="password"
-        ), follow_redirects=True)
+    return client.post('/login', data=dict(
+    username="sho",
+    password="password"
+    ), follow_redirects=True)
 
- def logout(client):
-        return client.get('/logout', follow_redirects=True)
+def logout(client):
+    return client.get('/logout', follow_redirects=True)
         
 if __name__ == '__main__':
     unittest.main()
