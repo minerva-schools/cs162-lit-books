@@ -3,21 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
 
-app = Flask(__name__)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(200))
-
-db.create_all()
-example_user = User(id=1, name="Philip Sterne")
-db.session.merge(example_user)
-db.session.commit()
+import web
+from web import db, app
+from .create_db import User, Book, Letter
 
 @app.route('/')
 def index():
