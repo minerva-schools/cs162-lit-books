@@ -23,8 +23,8 @@ class Book(db.Model):
     title = Column(Text, index = True)
     author_name = Column(Text, index = True)
     language = Column(Text, index = True)
-    owner = Column(id, ForeignKey('users.id'))
-    current_owner = Column(id, ForeignKey('users.id'))
+    owner = Column(Integer, ForeignKey('users.id'))
+    current_owner = Column(Integer, ForeignKey('users.id'))
     users = relationship('User')
 
     def __repr__(self):
@@ -33,8 +33,8 @@ class Book(db.Model):
 class Letter(db.Model):
     __tablename__ = 'letters'
     id = Column(Integer, primary_key = True)
-    book_id = Column(id, ForeignKey('books.id'))
-    user_id = Column(id, ForeignKey('users.id'))
+    book_id = Column(Integer, ForeignKey('books.id'))
+    user_id = Column(Integer, ForeignKey('users.id'))
     date = Column(Date, index=True)
     message = Column(Text, index = True)
     books = relationship('Book')
