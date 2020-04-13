@@ -44,8 +44,9 @@
   </div>
 
   <div id="wrapper">
-    <a href="#" class="button" style=margin:10px>I finish reading the book! 😎</a>
+    <button class="button" onclick="on_finish()" style=margin:10px>I finish reading the book! 😎</button>
   </div>
+
   <br><br>
 
   <!--book comment/letter section-->
@@ -95,6 +96,8 @@
       <br>Helena Mance
     </div>
 
+
+<!-- New Reciever Overlay -->
     <div id="overlay_new_reciever">
     <div class="overlay"></div>
     <div class="modal">
@@ -124,8 +127,76 @@
       </div>
 
       <div id="wrapper">
-        <button class="button" onclick="off()" style=margin:10px>Confirm and begin 😄</button>
+        <button class="button" onclick="on()" style=margin:10px>Confirm and begin 😄</button>
       </div>
+    </div>
+    </div>
+
+
+
+
+
+  <!-- I finished reading Overlay -->
+      <div id="overlay_finish">
+      <div class="overlay"></div>
+      <div class="modal">
+        <div style="padding:10px; margin-top:20px; margin-bottom:10px">
+
+        <h1 style="margin:0">Congrats 🎉</h1>
+
+        <br><br>
+        Now that you’ve finished reading the book,
+        please write about your reflection on the book.
+        Once you submited, mail the book to one of your friends to keep the
+        challenge going.
+        You are also encouraged to write a letter and place it into the book.
+
+        <br><br>
+
+        Note that your reflection cannot be changed once you submit.
+        Click confirm if you are ready.
+
+      </div>
+
+        <div id="wrapper">
+          <button class="button" onclick="off_finish()" style=margin:10px>Cancel 😔</button>
+        </div>
+
+        <div id="wrapper">
+
+          <button class="button" onclick="on_letter()" style=margin:10px>Confirm and begin 😄</button>
+        </div>
+      </div>
+      </div>
+
+
+<!-- Letter Overlay -->
+<div id="overlay_letter">
+    <div class="overlay"></div>
+    <div class="modal2">
+      <div style="padding:10px; margin-top:20px; ">
+
+      <h1 style="margin:0">Your Letter 📃</h1>
+
+      <br><br>
+      Share you thoughts with past/future readers!
+      What does the book inspire you to think about?
+<form class="form-container">
+<textarea placeholder="Type message.." name="msg" required></textarea>
+</form>
+
+    </div>
+    <div>
+      <div id="wrapper">
+        <button class="button" onclick="off_letter()" style="margin:8px; width:300px">Cancel 😔</button>
+      </div>
+
+      <div id="wrapper">
+        <a href="book_page.html" class="button" onclick="off_letter()" style="margin:8px; width: 300px">Done and Send 😄</a>
+      </div>
+    </div>
+
+
     </div>
     </div>
 
@@ -137,6 +208,23 @@ function on() {
 function off() {
   document.getElementById("overlay_new_reciever").style.display = "none";
 }
+
+function on_finish() {
+  document.getElementById("overlay_finish").style.display = "block";
+}
+
+function off_finish() {
+  document.getElementById("overlay_finish").style.display = "none";
+}
+
+function on_letter() {
+  document.getElementById("overlay_letter").style.display = "block";
+}
+
+function off_letter() {
+  document.getElementById("overlay_letter").style.display = "none";
+}
+
 </script>
 
 
