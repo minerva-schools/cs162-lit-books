@@ -40,14 +40,13 @@
   <h3>Shared by: Helena Mance</h3>
 
   <div id="wrapper">
-    <a href="#" class="button" style=margin:10px>I'm a new book reciever 😀</a>
+    <button class="button" onclick="on()" style=margin:10px>I'm a new book reciever 😀</button>
   </div>
 
   <div id="wrapper">
     <a href="#" class="button" style=margin:10px>I finish reading the book! 😎</a>
   </div>
   <br><br>
-
 
   <!--book comment/letter section-->
   <div class="comment_section">
@@ -95,6 +94,51 @@
       <br><br>Sending love,
       <br>Helena Mance
     </div>
+
+    <div id="overlay_new_reciever">
+    <div class="overlay"></div>
+    <div class="modal">
+      <div style="padding:10px; margin-top:20px; margin-bottom:10px">
+
+      Hey Elena!
+
+      <br><br>
+      In the next two weeks, we challenge you to finish reading this book.
+      When you are done with reading the book,
+      click “I’m ready to share the book!”
+      If you are confused,
+      please visit our Home Page and get a deeper understanding of the challenge.
+
+      <br><br>
+
+      Now, we kindly ask you to confirm that you are the new reciever.
+      Once you confirm, all the past readers will notice, and the book will
+      be added to your personal page.
+      <br><br>
+      Enjoy the journey!
+
+    </div>
+
+      <div id="wrapper">
+        <button class="button" onclick="off()" style=margin:10px>Cancel 😔</button>
+      </div>
+
+      <div id="wrapper">
+        <button class="button" onclick="off()" style=margin:10px>Confirm and begin 😄</button>
+      </div>
+    </div>
+    </div>
+
+<script>
+function on() {
+  document.getElementById("overlay_new_reciever").style.display = "block";
+}
+
+function off() {
+  document.getElementById("overlay_new_reciever").style.display = "none";
+}
+</script>
+
 
   <!--footer-->
   <br><h4>©️2020 Paper Trail. All Rights Reserved.</h4>

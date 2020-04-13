@@ -177,7 +177,31 @@ input[type=submit] {
 }
 
 
+/* overlay for new book recievers */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+}
 
+.modal {
+    width: 600px;
+    height: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -250px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
 
 
 /* For User Page */
@@ -237,6 +261,23 @@ input[type=submit] {
 
 /* Smaller Size Adjustment */
 @media screen and (max-width: 600px) {
+
+/* smaller size adjustment for the overlay notification bar */
+  .modal {
+      width: 400px;
+      height: 560px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-left: -200px;
+      margin-top: -280px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 2%;
+      text-align: left;
+      z-index: 11; /* 1px higher than the overlay layer */
+  }
+
   a.button {
     display: block;
     position: relative;
@@ -411,4 +452,8 @@ form.bookbar::after {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#overlay_new_reciever {
+  display: none
 }
