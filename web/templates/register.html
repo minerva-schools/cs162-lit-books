@@ -7,13 +7,6 @@
   <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/login.css" />
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">       
-  <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">    
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
-  </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -22,7 +15,6 @@
   <div class="topnav" id="myTopnav">
     <a href="index.html" class="active">Paper Trail</a>
     <a href="login.html">Login</a>
-    <a href="users.html">My Book</a>
     <a href="about.html">About</a>
     <a href="sample.html">Sample</a>
 
@@ -43,46 +35,28 @@
     }
   </script>
 
-  <!--Book Information-->
-    <div class="container login-container">
-        <div class="row">
-            <div class="col" style="background-color: green"></div>
-            <div class="col-5 login-form-1">
-                <h3>Create an account</h3>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Username *" value="" />
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password *" value="" />
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Email *" value="" />
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btnSubmit" value="Create" />
-                    </div>
-                    <div class="form-group" style="text-align: center;">
-                        Already registered? <a href="login.html" class="login">Sign In </a>
+  <!--Register-->
+  <div style="margin:10%">
+    <div class="login-box">
+      <div class="login-form">
+        <h1>Create an Account</h1>
+                <form action="login.html">
+                    <input type="text" class="login" placeholder="Username *" value="" />
+                    <input type="password" class="login" placeholder="Password *" value="" />
+                    <input type="password" class="login" placeholder="Email *" value="" />
+                    <input type="submit" class="btnSubmit" value="Create" style="padding: 10px; margin:0;" />
+                    <div style="text-align: center; padding:40px">
+                        Already registered? <a href="login.html">Sign In </a>
                     </div>
                 </form>
             </div>
-            <div class="col" style="background-color: green"></div>
         </div>
     </div>
 
 
-<!--footer-->
-  <footer class="page-footer font-small special-color-dark pt-4">
-    <!-- Copyright -->
-    <div class="">
-      <div class="footer-copyright text-center py-3">
-      © 2020 Paper Trail. All Rights Reserved.
-      </div>
-    </div>
-    
-    <!-- Copyright -->
-  </footer>
+  <!--footer-->
+      <h4>©️2020 Paper Trail. All Rights Reserved.</h4>
+    </p>
 
 </body>
 
