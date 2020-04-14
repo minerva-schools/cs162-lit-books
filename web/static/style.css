@@ -1,3 +1,4 @@
+/* header text design */
 body {
   background-color: #eeeeee;
   padding: 0;
@@ -48,7 +49,7 @@ h5{
 
 /* Date for Book Page */
 h6{
-  font-family: Futura light, sans-serif;
+  font-family: Futura Light, sans-serif;
   font-weight: normal;
   font-size:16px;
   display: inline-block;
@@ -67,6 +68,8 @@ h7{
   line-height: 25px;
 }
 
+
+/* components design */
 div {
   color: #393e46;
   font-family: Futura, sans-serif
@@ -173,12 +176,151 @@ input[type=submit] {
   display: none;
 }
 
+
+/* overlay for new book recievers */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal {
+    width: 600px;
+    height: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -250px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+.modal2 {
+    width: 1000px;
+    height: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -500px;
+    margin-top: -300px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1%;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+
+/* For User Page */
+/* Float four columns side by side */
+
+.card-col {
+  float: left;
+  width: 20%;
+  padding: 10px;
+}
+
+.card-row {
+  margin-left:12%;
+  margin-right:12%
+}
+
+/* Clear floats after the columns */
+.card-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  padding: 16px;
+  text-align: center;
+  background-color: #00adb5;
+  color: #eeeeee;
+  border-radius: 10px;
+  height: 220px;
+}
+
+/* Smaller Size Adjustment */
+@media screen and (min-width: 800px) and (max-width: 1100px) {
+  .card-col {
+    width: 25%;
+  }
+
+  .card-row {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+}
+
+/* Smaller Size Adjustment */
+@media screen and (min-width: 600px) and (max-width: 800px) {
+
+
+  .card-col {
+    width: 33%;
+  }
+
+  .card-row {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+}
+
+/* Smaller Size Adjustment */
 @media screen and (max-width: 600px) {
+
+/* smaller size adjustment for the overlay notification bar */
+  .modal {
+      width: 400px;
+      height: 560px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-left: -200px;
+      margin-top: -280px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 2%;
+      text-align: left;
+      z-index: 11; /* 1px higher than the overlay layer */
+  }
+
+  .modal2 {
+      width: 460px;
+      height: 660px;
+      top: 50%;
+      left: 50%;
+      margin-left: -230px;
+      margin-top: -330px;
+      padding: 2%;
+  }
+
+
   a.button {
     display: block;
     position: relative;
     min-width:80%
   }
+
+  .card-col {
+    width: 50%;
+  }
+
+  .card-row {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+
 
   .topnav a:not(:first-child) {
     display: none;
@@ -298,9 +440,35 @@ and (max-device-width : 480px) {
   text-align: left;
 }
 
-
 * {
   box-sizing: border-box;
+}
+
+
+/* Full-width textarea */
+/* Add styles to the form container */
+.form-container {
+  max-width: 100%;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 250px;
+  font-size: 14px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #eeeeee;
+  outline: none;
 }
 
 form.bookbar input[type=text] {
@@ -339,4 +507,16 @@ form.bookbar::after {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#overlay_new_reciever {
+  display: none
+}
+
+#overlay_finish {
+  display: none
+}
+
+#overlay_letter {
+  display: none
 }
