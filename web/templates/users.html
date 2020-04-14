@@ -81,8 +81,8 @@
       </div>
     </a>
 
-    <a href="book_page.html">
-      <div class="card-col">
+    <a onclick="on_add_book_1()" style="cursor:pointer">
+      <div class="card-col" >
         <div class="card" style="background-color:#eeeeee; border-style: dashed;
         border-color: #00adb5;">
         <br>
@@ -93,8 +93,6 @@
       </div>
     </a>
   </div>
-
-
 
 
   <!--Shared by me-->
@@ -157,6 +155,133 @@
     </div>
   </a>
 </div>
+
+
+<!-- overlay add book -->
+<!-- Add Book -->
+    <div id="overlay_add_book_1">
+    <div class="overlay"></div>
+    <div class="modal3">
+      <div style="padding:10px; margin-top:20px; margin-bottom:10px">
+
+      <h1 style="margin:0">Share a Book!</h1>
+
+      <br><br>
+      Share a book through Paper Trail and see it travels! Please prepare the
+      basic information below, and then send the book to one of your connections.
+      <br><br>
+
+      <form action="/action_page.php">
+        <label for="fname">Book Name:</label><br>
+        <input type="text" style="background-color:#eeeeee; padding:10px; margin-bottom:10px; border-radius:5px" value=""><br>
+
+        <label for="lname">Author Name:</label><br>
+        <input type="text" style="background-color:#eeeeee; padding:10px; border-radius:5px" value=""><br><br>
+      </form>
+
+      <div id="wrapper">
+        <button class="button" onclick="off_add_book_1()" style=margin:10px>Cancel 😔</button>
+      </div>
+
+      <div id="wrapper">
+        <button class="button" onclick="on_letter()" style=margin:10px>Next 😄</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Letter Overlay -->
+<div id="overlay_letter">
+    <div class="overlay"></div>
+    <div class="modal2">
+      <div style="padding:10px; margin-top:20px; ">
+
+      <h1 style="margin:0">Your Letter 📃</h1>
+
+      <br><br>
+      Share you thoughts with past/future readers!
+      What does the book inspire you to think about?
+<form class="form-container">
+<textarea placeholder="Type message.." name="msg" required></textarea>
+</form>
+
+    </div>
+    <div>
+      <div id="wrapper">
+        <button class="button" onclick="off_letter()" style="margin:8px; width:300px">Cancel 😔</button>
+      </div>
+
+      <div id="wrapper">
+        <button class="button" onclick="on_done()" style="margin:8px; width:300px">Done 😔</button>
+      </div>
+    </div>
+
+
+    </div>
+    </div>
+
+
+<!-- overlay add book -->
+<!-- Add Book -->
+    <div id="overlay_add_book_done">
+    <div class="overlay"></div>
+    <div class="modal4">
+      <div style="padding:10px; margin-top:20px; margin-bottom:10px">
+
+      <h1 style="margin:0">Done🎉</h1>
+
+      <br><br>
+      All set! Now, share your book to one of your connection.
+      Write down the webpage to access this challenge at
+      papertrail.com/sa12138
+
+      <br><br>
+
+      The Book ID to this book is
+      <h1 style="font-size:30px">SA12138</h1>
+
+      <div id="wrapper">
+        <button class="button" onclick="off_done()" style=margin:10px>OK 😄</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+  <script>
+  function on_add_book_1() {
+    document.getElementById("overlay_add_book_1").style.display = "block";
+  }
+
+  function off_add_book_1() {
+    document.getElementById("overlay_add_book_1").style.display = "none";
+  }
+
+  function on_letter() {
+    document.getElementById("overlay_letter").style.display = "block";
+    document.getElementById("overlay_add_book_1").style.display = "none";
+  }
+
+  function off_letter() {
+    document.getElementById("overlay_letter").style.display = "none";
+
+  }
+
+  function on_done() {
+    document.getElementById("overlay_add_book_done").style.display = "block";
+    document.getElementById("overlay_letter").style.display = "none";
+  }
+
+  function off_done() {
+    document.getElementById("overlay_add_book_done").style.display = "none";
+  }
+
+
+  </script>
 
 
   <!--footer-->
