@@ -24,7 +24,7 @@ db.create_all() #create all tables
 # Page to look up book by ID
 @app.route('/booksearch')
 def booksearch():
-    return render_template('index.html')
+    return render_template('index_signed_in.html')
 
 # Index page
 @app.route('/')
