@@ -47,5 +47,10 @@ def login():
 def register():
     return render_template('register.html')
 
+# Book listing
+@app.route('/book/') #@app.route('/book/<int:bookid>')
+def book():
+    return render_template('book_page.html')
+
 if __name__ == '__main__':
     app.run()

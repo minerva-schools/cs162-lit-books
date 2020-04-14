@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <title>Paper Trail</title>
   <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -40,11 +40,11 @@
   <h3>Shared by: Helena Mance</h3>
 
   <div id="wrapper">
-    <button class="button" onclick="on()" style=margin:10px>I'm a new book reciever 😀</button>
+    <button class="button" onclick="on()" style=margin:10px>I'm a new book receiver 😀</button>
   </div>
 
   <div id="wrapper">
-    <button class="button" onclick="on_finish()" style=margin:10px>I finish reading the book! 😎</button>
+    <button class="button" onclick="on_finish()" style=margin:10px>I've finished reading the book! 😎</button>
   </div>
 
   <br><br>
