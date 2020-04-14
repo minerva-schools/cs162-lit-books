@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
-from .create_db import User, Book, Letter
+#from create_db import User, Book, Letter
 
 # Initiate Flask app
 app = Flask(__name__)
@@ -19,17 +19,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Instantiate SQLAlchemy
 db = SQLAlchemy(app)
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(200))
-    def __repr__(self):
-        return '<User {}: {}>'.format(self.id,self.name)
-
 db.create_all() #create all tables
-
-example_user = User(id=1, name="Philip Sterne")
-db.session.add(example_user)
-db.session.commit()
 
 @app.route('/')
 def index():
