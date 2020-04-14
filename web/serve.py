@@ -37,10 +37,15 @@ def index():
 def about():
     return render_template('about.html')
 
-#Log-in page
+# Log-in page
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+# Register page
+@app.route('/register')
+def register():
+    return render_template('register.html')
 
 if __name__ == '__main__':
     app.run()

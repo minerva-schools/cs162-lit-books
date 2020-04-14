@@ -28,5 +28,10 @@ def test_login(client):
     rv = client.get('/login')
     assert b"Login" in rv.data
 
+def test_register(client):
+    """Check /register endpoint"""
+    rv = client.get('/register')
+    assert b"Create an account" in rv.data
+
 if __name__ == '__main__':
     unittest.main()
