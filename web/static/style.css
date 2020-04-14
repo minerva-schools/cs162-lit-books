@@ -1,0 +1,342 @@
+body {
+  background-color: #eeeeee;
+  padding: 0;
+  margin: 0
+}
+
+p {
+  background-color: #eeeeee;
+}
+
+h1 {
+  color: #222831;
+  font-family: Futura, sans-serif;
+  font-size: 40px;
+  text-align: center;
+}
+
+h2 {
+  color: #00adb5;
+  font-family: Futura, sans-serif;
+  text-align: left;
+}
+
+h3 {
+  color: #393e46;
+  font-family: Futura, sans-serif;
+  font-weight: lighter;
+  text-align: center;
+}
+
+h4 {
+  color: #D0D0D0;
+  font-family: Futura, sans-serif;
+  font-weight: normal;
+  text-align: center;
+  font-size: 15px
+}
+
+/* User Name for Book Page */
+h5{
+  font-family: Futura, sans-serif;
+  font-weight: normal;
+  font-size:16px;
+  display: inline-block;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+/* Date for Book Page */
+h6{
+  font-family: Futura light, sans-serif;
+  font-weight: normal;
+  font-size:16px;
+  display: inline-block;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+/* Light Font */
+h7{
+  font-family: Futura light, sans-serif;
+  font-weight: normal;
+  font-size:18px;
+  display: inline-block;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  line-height: 25px;
+}
+
+div {
+  color: #393e46;
+  font-family: Futura, sans-serif
+}
+
+a {
+  text-decoration: none;
+  text-align: right;
+  color: #393e46;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+  padding: 10px;
+  text-align: right
+}
+
+input{
+  font-family: Futura, sans-serif;
+  font-size: 16px;
+  border: none;
+  background-color: white;
+  padding: 8px 0px;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+input[type=button],
+input[type=submit] {
+  width: 0%;
+  font-family: Futura, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  background-color: #00adb5;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-decoration: none;
+  margin: 8px 0;
+  cursor: pointer
+}
+
+.bar {
+  margin-left: 18%;
+  margin-right: 18%;
+}
+
+.button {
+  width: 450px;
+  background-color: #00adb5;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 10px;
+  text-align:center;
+  font-family: Futura, sans-serif;
+  font-size: 20px;
+}
+
+.comment_section{
+  background-color: #eeeeee
+}
+
+.comment{
+  background-color: white;
+  border-radius: 10px;
+  margin-left:20%;
+  margin-right:20%;
+  padding: 20px;
+  font-family: Futura light, sans-serif;
+  min-width: 60%
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #222831;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #eeeeee;
+  color: #222831;
+}
+
+.topnav a.active {
+  float: left;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  a.button {
+    display: block;
+    position: relative;
+    min-width:80%
+  }
+
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .bar{
+    padding: none;
+    align: center;
+    margin-left: 6%;
+    margin-right: 6%
+  }
+
+  .comment {
+    margin-left:5%;
+    margin-right:5%;
+    width:90%;
+  }
+
+  .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+  small {
+  display: block;
+  line-height: 1.428571429;
+  color: #999;
+  }
+
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+
+  h1 {
+    font-size: 80px
+  }
+
+  h2 {
+    font-size: 40px
+  }
+
+  h3 {
+    font-size:30 px
+  }
+
+  input{
+    font-size: 30px;
+  }
+
+  input[type=button],
+  input[type=submit] {
+    font-size: 30px;
+  }
+
+  a.button {
+    display: block;
+    position: relative;
+    min-width:80%
+  }
+
+  .topnav a {
+    font-size: 40px;
+  }
+
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .bar{
+    padding: none;
+    align: center;
+    margin-left: 6%;
+    margin-right: 6%
+  }
+
+  .comment {
+    margin-left:5%;
+    margin-right:5%;
+    width:90%;
+  }
+
+}
+
+.topnav.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+form.bookbar input[type=text] {
+  padding: 18px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 80%;
+  background: white;
+}
+
+form.bookbar button {
+  float: left;
+  width: 20%;
+  padding: 18px;
+  background: #00adb5;
+  color: white;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+form.bookbar button:hover {
+  background: #222831;
+}
+
+form.bookbar::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
