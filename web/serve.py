@@ -21,10 +21,16 @@ db = SQLAlchemy(app)
 
 db.create_all() #create all tables
 
-# Main page
+# Page to look up book by ID
+@app.route('/booksearch')
+def booksearch():
+    return render_template('index.html')
+
+# Index page
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Redirect to booksearch if logged-in
+    return redirect(url_for('booksearch'))
 
 # About page
 @app.route('/about')
