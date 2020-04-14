@@ -48,8 +48,8 @@ def register():
     return render_template('register.html')
 
 # Book listing
-@app.route('/book/') #@app.route('/book/<int:bookid>')
-def book():
+@app.route('/book/id/<int:bookid>')
+def book(bookid):
     return render_template('book_page.html')
 
 if __name__ == '__main__':
