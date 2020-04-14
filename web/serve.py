@@ -52,5 +52,10 @@ def register():
 def book(bookid):
     return render_template('book_page.html')
 
+# User profile
+@app.route('/user/<username>')
+def user_byusername(username):
+    return render_template('users.html')
+
 if __name__ == '__main__':
     app.run()
