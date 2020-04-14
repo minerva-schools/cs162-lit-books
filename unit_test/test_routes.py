@@ -12,9 +12,9 @@ def client():
 
     yield client
 
-def test_index(client):
-    """Check if index.html renders"""
-    rv = client.get('/')
+def test_booksearch(client):
+    """Check if booksearch endpoint renders"""
+    rv = client.get('/booksearch')
     assert b"Don't have a Book ID?" in rv.data
 
 def test_about(client):
@@ -26,7 +26,7 @@ def test_about(client):
 def test_login(client):
     """Check login.html renders"""
     rv = client.get('/login')
-    assert b."Login" in rv.data
+    assert b"Login" in rv.data
 
 if __name__ == '__main__':
     unittest.main()
