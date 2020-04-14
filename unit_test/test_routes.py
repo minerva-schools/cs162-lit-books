@@ -23,5 +23,10 @@ def test_about(client):
     assert b"About Paper Trail" in rv.data
     assert b"What's Paper Trail" in rv.data
 
+def test_login(client):
+    """Check login.html renders"""
+    rv = client.get('/login')
+    assert b."Login" in rv.data
+
 if __name__ == '__main__':
     unittest.main()

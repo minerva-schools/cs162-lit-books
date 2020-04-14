@@ -21,13 +21,20 @@ db = SQLAlchemy(app)
 
 db.create_all() #create all tables
 
+# Main page
 @app.route('/')
 def index():
     return render_template('index.html')
 
+# About page
 @app.route('/about')
-def about(): #About page
+def about():
     return render_template('about.html')
+
+#Log-in page
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 if __name__ == '__main__':
     app.run()
