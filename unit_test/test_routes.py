@@ -44,5 +44,10 @@ def test_userbyusername(client):
     rv = client.get('/user/Elena99')
     assert b"Shared by me" in rv.data
 
+def test_userbyid(client):
+    """Check user profile accessed by id"""
+    rv = client.get('/user/id/1')
+    assert b"Shared by me" in rv.data
+
 if __name__ == '__main__':
     unittest.main()

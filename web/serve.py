@@ -52,9 +52,14 @@ def register():
 def book(bookid):
     return render_template('book_page.html')
 
-# User profile
+# User profile by username
 @app.route('/user/<username>')
 def user_byusername(username):
+    return render_template('users.html')
+
+# User profile by id
+@app.route('/user/id/<int:userid>')
+def user_byid(userid):
     return render_template('users.html')
 
 if __name__ == '__main__':
