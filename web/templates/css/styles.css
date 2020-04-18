@@ -115,8 +115,8 @@ input[type=submit] {
 }
 
 .bar {
-  margin-left: 18%;
-  margin-right: 18%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .button {
@@ -228,9 +228,20 @@ input[type=submit] {
   padding: 10px;
 }
 
+.card-col-2 {
+  float: left;
+  width: 33%;
+  padding: 10px;
+}
+
 .card-row {
   margin-left:12%;
   margin-right:12%
+}
+
+.card-row-2 {
+  margin-left:0;
+  margin-right:0
 }
 
 /* Clear floats after the columns */
@@ -248,6 +259,15 @@ input[type=submit] {
   color: #eeeeee;
   border-radius: 10px;
   height: 220px;
+}
+
+.card-2 {
+  padding: 16px;
+  text-align: center;
+  background-color: none;
+  color: #eeeeee;
+  border-radius: 10px;
+  height: 180px;
 }
 
 /* Smaller Size Adjustment */
@@ -344,8 +364,8 @@ input[type=submit] {
   .bar{
     padding: none;
     align: center;
-    margin-left: 6%;
-    margin-right: 6%
+    margin-left: 5%;
+    margin-right: 5%
   }
 
   .comment {
