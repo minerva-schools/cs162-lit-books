@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
-from .create_db import User, Book, Letter
+#from create_db import User, Book, Letter
 
 # Initiate Flask app
 app = Flask(__name__)
@@ -19,21 +19,48 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Instantiate SQLAlchemy
 db = SQLAlchemy(app)
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(200))
-    def __repr__(self):
-        return '<User {}: {}>'.format(self.id,self.name)
-
 db.create_all() #create all tables
 
-example_user = User(id=1, name="Philip Sterne")
-db.session.add(example_user)
-db.session.commit()
+# Page to look up book by ID
+@app.route('/booksearch')
+def booksearch():
+    return render_template('index_signed_in.html')
 
+# Index page
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Redirect to booksearch if logged-in
+    return redirect(url_for('booksearch'))
+
+# About page
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+# Log-in page
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+# Register page
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
+# Book listing
+@app.route('/book/id/<int:bookid>')
+def book(bookid):
+    return render_template('book_page.html')
+
+# User profile by username
+@app.route('/user/<username>')
+def user_byusername(username):
+    return render_template('users.html')
+
+# User profile by id
+@app.route('/user/id/<int:userid>')
+def user_byid(userid):
+    return render_template('users.html')
 
 if __name__ == '__main__':
     app.run()
