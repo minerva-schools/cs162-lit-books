@@ -76,7 +76,7 @@ div {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   text-align: right;
   color: #393e46;
 }
@@ -264,6 +264,38 @@ input[type=submit] {
     z-index: 11; /* 1px higher than the overlay layer */
 }
 
+/* overlay_login */
+.modal6 {
+    width: 500px;
+    height: 450px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -225px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+/* overlay_signup */
+.modal7 {
+    width: 500px;
+    height: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -250px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
 /* For User Page */
 /* Float four columns side by side */
 
@@ -380,6 +412,28 @@ input[type=submit] {
        margin-top: -280px;
        padding: 2%;
    }
+
+/* overlay_add_book_1 */
+.modal6 {
+    width: 450px;
+    height: 450px;
+    top: 50%;
+    left: 50%;
+    margin-left: -225px;
+    margin-top: -225px;
+    padding: 2%;
+}
+
+/* overlay_add_book_1 */
+.modal7 {
+    width: 450px;
+    height: 550px;
+    top: 50%;
+    left: 50%;
+    margin-left: -225px;
+    margin-top: -275px;
+    padding: 2%;
+}
 
   a.button {
     display: block;
@@ -605,5 +659,9 @@ form.bookbar::after {
 }
 
 #overlay_report{
+  display: none
+}
+
+#overlay_signup{
   display: none
 }

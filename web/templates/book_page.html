@@ -6,6 +6,7 @@
   <title>Paper Trail</title>
   <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/login.css" />
 </head>
 
 <body>
@@ -203,16 +204,61 @@
     <div id="overlay_report">
       <div class="overlay"></div>
       <div class="modal5">
-        <a onclick="off_report()">
+        <a onclick="off_report()" style="text-decoration:none">
           <div style="text-align:center; margin:15px; cursor:pointer">Report Inappropriate</div>
         </a>
 
         <hr style="margin:0">
-        <a onclick="off_report()">
+        <a onclick="off_report()" style="text-decoration:none">
           <div style="text-align:center; margin:15px; cursor:pointer">Cancel</div>
         </a>
       </div>
     </div>
+
+
+
+    <!-- login overlay-->
+    <div id="overlay_login">
+      <div class="overlay"></div>
+      <div class="modal6">
+        <div class="login-form">
+          <h1>Login</h1>
+          <form>
+            <input type="text" class="login" placeholder="Username *" value="" />
+            <input type="password" class="login" placeholder="Password *" value="" />
+            <input type="button" class="btnSubmit" value="Login" style="padding: 10px; margin:0;" onclick="off_login()" />
+            <div style="text-align: center; padding:40px">
+              Haven't registered?
+              <a onclick="on_signup()" style="cursor:pointer">
+                Create an account </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- signup overlay-->
+    <div id="overlay_signup">
+      <div class="overlay"></div>
+      <div class="modal7">
+        <div class="login-form">
+          <h1>Create an Account</h1>
+          <form>
+            <input type="text" class="login" placeholder="Username *" value="" />
+            <input type="password" class="login" placeholder="Password *" value="" />
+            <input type="text" class="login" placeholder="Email *" value="" />
+            <input type="button" class="btnSubmit" value="Create" style="padding: 10px; margin:0;" onclick="on_login()" />
+            <div style="text-align: center; padding:40px">
+              Already registered?
+              <a onclick="on_login()" style="cursor:pointer">
+                Sign In </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
 
     <script>
       function on() {
@@ -245,6 +291,24 @@
 
       function off_report() {
         document.getElementById("overlay_report").style.display = "none";
+      }
+
+      function on_login() {
+        document.getElementById("overlay_signup").style.display = "none";
+        document.getElementById("overlay_login").style.display = "block";
+      }
+
+      function off_login() {
+        document.getElementById("overlay_login").style.display = "none";
+      }
+
+      function on_signup() {
+        document.getElementById("overlay_signup").style.display = "block";
+        document.getElementById("overlay_login").style.display = "none";
+      }
+
+      function off_signup() {
+        document.getElementById("overlay_signup").style.display = "none";
       }
     </script>
 
