@@ -79,7 +79,6 @@ a {
   text-decoration: none;
   text-align: right;
   color: #393e46;
-  text-decoration: underline;
 }
 
 ul {
@@ -246,6 +245,21 @@ input[type=submit] {
     background-color: white;
     border-radius: 10px;
     padding: 10px;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+/* overlay_report */
+.modal5 {
+    width: 400px;
+    height: 104px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -52px;
+    background-color: white;
+    border-radius: 10px;
     text-align: left;
     z-index: 11; /* 1px higher than the overlay layer */
 }
@@ -587,5 +601,9 @@ form.bookbar::after {
 }
 
 #overlay_add_book_done{
+  display: none
+}
+
+#overlay_report{
   display: none
 }

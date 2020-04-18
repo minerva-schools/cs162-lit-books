@@ -54,6 +54,7 @@
     <br>
     <div class="comment">
       <h5>Elena Cai</h5> | <h6>January 15, 2021 </h6>
+      <i class="fas fa-ellipsis-h" style="float:right; cursor:pointer" onclick="on_report()"></i>
       <hr>
       我看到这本书时，并没有想到它会给我带来这么大的触动。它是通过一个包裹邮寄到我家的，
       黑色的封皮上写着简单的五个字：牛奶与蜂蜜。milk and honey. 就是这么简单。它是关于什么
@@ -70,6 +71,7 @@
 
     <div class="comment">
       <h5>Sho</h5> | <h6>March 4, 2020 </h6>
+      <i class="fas fa-ellipsis-h" style="float:right; cursor:pointer" onclick="on_report()"></i>
       <hr>
       本書をご覧になった際に、これが私たちの家に送られることを思いもしませんでした。 はちみつ。
       これは、治療の観点、私たちの観点、生命の観点から明らかです。
@@ -82,6 +84,7 @@
 
     <div class="comment">
       <h5>Helena Mance</h5> | <h6>Febrary 21, 2020 </h6>
+      <i class="fas fa-ellipsis-h" style="float:right; cursor:pointer" onclick="on_report()"></i>
       <hr>
       To whom this book gets to: <br><br>
 
@@ -97,63 +100,63 @@
     </div>
 
 
-<!-- New Reciever Overlay -->
+    <!-- New Reciever Overlay -->
     <div id="overlay_new_reciever">
-    <div class="overlay"></div>
-    <div class="modal">
-      <div style="padding:10px; margin-top:20px; margin-bottom:10px">
-
-      Hey Elena!
-
-      <br><br>
-      In the next two weeks, we challenge you to finish reading this book.
-      When you are done with reading the book,
-      click “I’m ready to share the book!”
-      If you are confused,
-      please visit our Home Page and get a deeper understanding of the challenge.
-
-      <br><br>
-
-      Now, we kindly ask you to confirm that you are the new reciever.
-      Once you confirm, all the past readers will notice, and the book will
-      be added to your personal page.
-      <br><br>
-      Enjoy the journey!
-
-    </div>
-
-      <div id="wrapper">
-        <button class="button" onclick="off()" style=margin:10px>Cancel 😔</button>
-      </div>
-
-      <div id="wrapper">
-        <button class="button" onclick="off()" style=margin:10px>Confirm and begin 😄</button>
-      </div>
-    </div>
-    </div>
-
-
-  <!-- I finished reading Overlay -->
-      <div id="overlay_finish">
       <div class="overlay"></div>
       <div class="modal">
         <div style="padding:10px; margin-top:20px; margin-bottom:10px">
 
-        <h1 style="margin:0">Congrats 🎉</h1>
+          Hey Elena!
 
-        <br><br>
-        Now that you’ve finished reading the book,
-        please write about your reflection on the book.
-        Once you submited, mail the book to one of your friends to keep the
-        challenge going.
-        You are also encouraged to write a letter and place it into the book.
+          <br><br>
+          In the next two weeks, we challenge you to finish reading this book.
+          When you are done with reading the book,
+          click “I’m ready to share the book!”
+          If you are confused,
+          please visit our Home Page and get a deeper understanding of the challenge.
 
-        <br><br>
+          <br><br>
 
-        Note that your reflection cannot be changed once you submit.
-        Click confirm if you are ready.
+          Now, we kindly ask you to confirm that you are the new reciever.
+          Once you confirm, all the past readers will notice, and the book will
+          be added to your personal page.
+          <br><br>
+          Enjoy the journey!
 
+        </div>
+
+        <div id="wrapper">
+          <button class="button" onclick="off()" style=margin:10px>Cancel 😔</button>
+        </div>
+
+        <div id="wrapper">
+          <button class="button" onclick="off()" style=margin:10px>Confirm and begin 😄</button>
+        </div>
       </div>
+    </div>
+
+
+    <!-- I finished reading Overlay -->
+    <div id="overlay_finish">
+      <div class="overlay"></div>
+      <div class="modal">
+        <div style="padding:10px; margin-top:20px; margin-bottom:10px">
+
+          <h1 style="margin:0">Congrats 🎉</h1>
+
+          <br><br>
+          Now that you’ve finished reading the book,
+          please write about your reflection on the book.
+          Once you submited, mail the book to one of your friends to keep the
+          challenge going.
+          You are also encouraged to write a letter and place it into the book.
+
+          <br><br>
+
+          Note that your reflection cannot be changed once you submit.
+          Click confirm if you are ready.
+
+        </div>
 
         <div id="wrapper">
           <button class="button" onclick="off_finish()" style=margin:10px>Cancel 😔</button>
@@ -164,69 +167,92 @@
           <button class="button" onclick="on_letter()" style=margin:10px>Confirm and begin 😄</button>
         </div>
       </div>
+    </div>
+
+
+    <!-- Letter Overlay -->
+    <div id="overlay_letter">
+      <div class="overlay"></div>
+      <div class="modal2">
+        <div style="padding:10px; margin-top:20px; ">
+
+          <h1 style="margin:0">Your Letter 📃</h1>
+
+          <br><br>
+          Share you thoughts with past/future readers!
+          What does the book inspire you to think about?
+          <form class="form-container">
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+          </form>
+
+        </div>
+        <div>
+          <div id="wrapper">
+            <button class="button" onclick="off_letter()" style="margin:8px; width:300px">Cancel 😔</button>
+          </div>
+
+          <div id="wrapper">
+            <a href="book_page.html" class="button" onclick="off_letter()" style="margin:8px; width: 300px">Done and Send 😄</a>
+          </div>
+        </div>
       </div>
-
-
-<!-- Letter Overlay -->
-<div id="overlay_letter">
-    <div class="overlay"></div>
-    <div class="modal2">
-      <div style="padding:10px; margin-top:20px; ">
-
-      <h1 style="margin:0">Your Letter 📃</h1>
-
-      <br><br>
-      Share you thoughts with past/future readers!
-      What does the book inspire you to think about?
-<form class="form-container">
-<textarea placeholder="Type message.." name="msg" required></textarea>
-</form>
-
     </div>
-    <div>
-      <div id="wrapper">
-        <button class="button" onclick="off_letter()" style="margin:8px; width:300px">Cancel 😔</button>
-      </div>
 
-      <div id="wrapper">
-        <a href="book_page.html" class="button" onclick="off_letter()" style="margin:8px; width: 300px">Done and Send 😄</a>
+
+    <!-- Report, Edit, Cancel -->
+    <div id="overlay_report">
+      <div class="overlay"></div>
+      <div class="modal5">
+        <a onclick="off_report()">
+          <div style="text-align:center; margin:15px; cursor:pointer">Report Inappropriate</div>
+        </a>
+
+        <hr style="margin:0">
+        <a onclick="off_report()">
+          <div style="text-align:center; margin:15px; cursor:pointer">Cancel</div>
+        </a>
       </div>
     </div>
 
+    <script>
+      function on() {
+        document.getElementById("overlay_new_reciever").style.display = "block";
+      }
 
-    </div>
-    </div>
+      function off() {
+        document.getElementById("overlay_new_reciever").style.display = "none";
+      }
 
-<script>
-function on() {
-  document.getElementById("overlay_new_reciever").style.display = "block";
-}
+      function on_finish() {
+        document.getElementById("overlay_finish").style.display = "block";
+      }
 
-function off() {
-  document.getElementById("overlay_new_reciever").style.display = "none";
-}
+      function off_finish() {
+        document.getElementById("overlay_finish").style.display = "none";
+      }
 
-function on_finish() {
-  document.getElementById("overlay_finish").style.display = "block";
-}
+      function on_letter() {
+        document.getElementById("overlay_letter").style.display = "block";
+      }
 
-function off_finish() {
-  document.getElementById("overlay_finish").style.display = "none";
-}
+      function off_letter() {
+        document.getElementById("overlay_letter").style.display = "none";
+      }
 
-function on_letter() {
-  document.getElementById("overlay_letter").style.display = "block";
-}
+      function on_report() {
+        document.getElementById("overlay_report").style.display = "block";
+      }
 
-function off_letter() {
-  document.getElementById("overlay_letter").style.display = "none";
-}
-
-</script>
+      function off_report() {
+        document.getElementById("overlay_report").style.display = "none";
+      }
+    </script>
 
 
-  <!--footer-->
-  <br><h4>©️2020 Paper Trail. All Rights Reserved.</h4>
+    <!--footer-->
+    <br>
+    <h4>©️2020 Paper Trail. All Rights Reserved.</h4>
 
 </body>
+
 </html>
