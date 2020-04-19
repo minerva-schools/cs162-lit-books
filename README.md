@@ -18,6 +18,6 @@ $ pip3 install -r requirements.txt
 
 ##Run the app
 ```
-$ export FLASK_APP=app.py
+$ export FLASK_APP=web
 $ flask run
 ```
