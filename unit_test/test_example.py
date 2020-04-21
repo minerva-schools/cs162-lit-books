@@ -1,12 +1,12 @@
 # Example taken from:
 # http://flask.pocoo.org/docs/1.0/testing/
 # and suitably modified.
-import os
-import tempfile
+# import os
+# import tempfile
 
-import pytest
+# import pytest
 
-from web import app, db
+# from web import app, db
 
 
 # @pytest.fixture
@@ -36,5 +36,5 @@ from web import app, db
 # def logout(client):
 #     return client.get('/logout', follow_redirects=True)
         
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
