@@ -19,7 +19,7 @@ class User(db.Model):
 
 class Book(db.Model):
     __tablename__ = 'books'
-    id = Column(String, primary_key = True)
+    id = Column(String, primary_key=True)
     title = Column(String, index = True)
     author_name = Column(String, index = True)
     owner = Column(Integer, ForeignKey('users.id'))

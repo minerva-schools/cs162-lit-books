@@ -136,37 +136,37 @@ def valid_book_id():
             return book_id
 ###############
 # Add a new book
-@app.route('/add')
+@app.route('/add', methods=["POST","GET"])
 def add_book():
-    # if not session.get('username') is None:
-    #     return render_template('login.html')
+    username = session.get('username')
+
+    if username == None:
+        flash ('Please log in to use')
+        return redirect(url_for('login'))
+
+    user = db.session.query(User).filter(User.username == username).first()
+    title = request.form['title']
+    author = request.form['author']
+    book_id = valid_book_id()
+
+    new_book = Book(title=title, author_name=author, id=book_id, owner=user.id)
+    db.session.add(new_book)
+    db.session.commit()
+    return redirect(url_for('book', bookid = book_id))
     # else:
-    #     return render_template('book_page.html')
-    # user = session.get('username')
-
-    # if user == None:
-    #     flash ('Please log in to use')
-    #     return redirect(url_for('login'))
-
-    # title = request.form['title']
-    # author = request.form['author']
-    # book_id = valid_book_id()
-
-    # new_book = Book(title=title, author_name=title, id=book_id, owner=2)
-    # db.session.add(new_book)
-    # db.session.commit()
-    # return redirect(url_for('book', bookid = book_id))
-    return True
+    #     return render_template("login.html")
 
 # Book listing
-@app.route('/book/id/<int:bookid>')
+@app.route('/book/id/<bookid>')
 def book(bookid):
     return render_template('book_page.html')
 
 # User profile by username
 @app.route('/user/<username>')
 def user_byusername(username):
-    return render_template('users.html')
+    user = db.session.query(User).filter(User.username == username).first()
+    name = user.name
+    return render_template('users.html', user_name=name)
 
 # User profile by id
 @app.route('/user/id/<int:userid>')
