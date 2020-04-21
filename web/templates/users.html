@@ -6,6 +6,8 @@
   <title>Paper Trail</title>
   <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  <!-- <link rel="stylesheet" href="css/styles.css" /> -->
+
 </head>
 
 <body>
@@ -144,12 +146,12 @@
       </div>
     </a>
 
-  <a href="book_page.html">
+  <a onclick=on_new_receive() style="cursor:pointer">
     <div class="card-col">
       <div class="card" style="background-color:#eeeeee; border-style: dashed;
       border-color: #00adb5;">
       <br>
-        <h3 style="color:#00adb5">Add a new <br>Recieve</h3>
+        <h3 style="color:#00adb5">Add a new <br>Receive</h3>
         <i class="fas fa-plus-circle fa-2x" style="color:#00adb5;"></i>
       </div>
     </div>
@@ -250,7 +252,24 @@
   </div>
 </div>
 
+<!-- overlay add new receive -->
+<!-- Add Book -->
+    <div id="overlay_add_new_receive">
+    <div class="overlay"></div>
+    <div class="modal8">
+      <div style="padding:10px; margin-top:20px; margin-bottom:10px">
 
+      <!--Book ID bar-->
+        <h1>Paper Trail</h1>
+        <form class="bookbar" action="/action_page.php" style="margin:auto;max-width:400px;">
+          <input type="text" placeholder="Your Book ID..." name="search2" style="background-color:#eeeeee">
+          <button type="submit"><i class="fa fa-paper-plane" onclick="off_new_receive"></i></button>
+        </form>
+        <h3><a href="about.html">Don't have a Book ID?</a></h3>
+
+    </div>
+  </div>
+</div>
 
   <script>
   function on_add_book_1() {
@@ -280,6 +299,13 @@
     document.getElementById("overlay_add_book_done").style.display = "none";
   }
 
+  function on_new_receive() {
+    document.getElementById("overlay_add_new_receive").style.display = "block";
+  }
+
+  function off_new_receive() {
+    document.getElementById("overlay_add_new_receive").style.display = "none";
+  }
 
   </script>
 

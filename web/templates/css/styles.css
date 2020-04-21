@@ -296,6 +296,22 @@ input[type=submit] {
     z-index: 11; /* 1px higher than the overlay layer */
 }
 
+/* overlay_add_new_receive */
+.modal8 {
+    width: 550px;
+    height: 340px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -275px;
+    margin-top: -170px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: left;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
 /* For User Page */
 /* Float four columns side by side */
 
@@ -413,38 +429,37 @@ input[type=submit] {
        padding: 2%;
    }
 
-/* overlay_add_book_1 */
-.modal6 {
-    width: 450px;
-    height: 450px;
-    top: 50%;
-    left: 50%;
-    margin-left: -225px;
-    margin-top: -225px;
-    padding: 2%;
-}
-
-/* overlay_add_book_1 */
-.modal7 {
-    width: 450px;
-    height: 550px;
-    top: 50%;
-    left: 50%;
-    margin-left: -225px;
-    margin-top: -275px;
-    padding: 2%;
-}
 
   /* overlay_add_book_1 */
-    .modal3 {
-        width: 460px;
-        height: 560px;
-        top: 50%;
-        left: 50%;
-        margin-left: -230px;
-        margin-top: -280px;
-        padding: 2%;
-    }
+  .modal6 {
+      width: 450px;
+      height: 450px;
+      top: 50%;
+      left: 50%;
+      margin-left: -225px;
+      margin-top: -225px;
+      padding: 2%;
+  }
+
+  /* overlay_add_book_1 */
+  .modal7 {
+      width: 450px;
+      height: 550px;
+      top: 50%;
+      left: 50%;
+      margin-left: -225px;
+      margin-top: -275px;
+      padding: 2%;
+  }
+
+  /* overlay_add_new_receive */
+  .modal8 {
+      width: 450px;
+      top: 50%;
+      left: 50%;
+      margin-left: -225px;
+      padding: 10px;
+  }
 
   a.button {
     display: block;
@@ -674,5 +689,9 @@ form.bookbar::after {
 }
 
 #overlay_signup{
+  display: none
+}
+
+#overlay_add_new_receive{
   display: none
 }
