@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <title>Paper Trail</title>
   <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -210,7 +210,7 @@
     </div>
     <div>
       <div id="wrapper">
-        <button class="button" onclick="on_done()" style="margin:8px; width:300px">Done 😔</button>
+        <button class="button" onclick="on_done()" style="margin:8px; width:300px">Done 😄</button>
       </div>
       <div id="wrapper">
         <button class="button" onclick="off_letter()" style="margin:8px; width:300px">Cancel 😔</button>

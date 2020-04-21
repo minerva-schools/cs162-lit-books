@@ -5,8 +5,8 @@
   <meta charset="utf-8" />
   <title>Register</title>
   <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/login.css" />
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='login.css') }}">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
   <div style="margin:10%">
     <div class="login-box">
       <div class="login-form">
-        <h1>Create an Account</h1>
+        <h1>Create an account</h1>
                 <form action="login.html">
                     <input type="text" class="login" placeholder="Username *" value="" />
                     <input type="password" class="login" placeholder="Password *" value="" />
