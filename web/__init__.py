@@ -16,9 +16,9 @@ app = Flask(__name__)
 db_path = os.path.join(os.path.dirname(__file__), 'database.db')
 URI = 'sqlite:///{}'.format(db_path)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = URI
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = os.urandom(24)
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 # Instantiate SQLAlchemy
 db = SQLAlchemy(app)
