@@ -13,8 +13,8 @@ app = Flask(__name__)
 # URI = 'sqlite:///:memory:'
 
 #for locally testing 
-db_path = os.path.join(os.path.dirname(__file__), 'database.db')
-URI = 'sqlite:///{}'.format(db_path)
+# db_path = os.path.join(os.path.dirname(__file__), 'database.db')
+# URI = 'sqlite:///{}'.format(db_path)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
