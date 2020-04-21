@@ -5,25 +5,24 @@
   <meta charset="utf-8" />
   <title>Register</title>
   <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
-  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='login.css') }}">
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  <!-- <link rel="stylesheet" href="css/styles.css" /> -->
 </head>
 
 <body>
 
-  <!--navigation bar-->
+  <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
     <a href="index.html" class="active">Paper Trail</a>
     <a href="login.html">Login</a>
     <a href="about.html">About</a>
     <a href="sample.html">Sample</a>
-
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars" aria-hidden="true"></i>
     </a>
   </div>
 
-  <!--javascript-->
+  <!-- javascript for navigation bar -->
   <script>
     function myFunction() {
       var x = document.getElementById("myTopnav");
@@ -35,28 +34,28 @@
     }
   </script>
 
-  <!--Register-->
+  <!-- Signup -->
   <div style="margin:10%">
     <div class="login-box">
       <div class="login-form">
         <h1>Create an account</h1>
-                <form action="login.html">
-                    <input type="text" class="login" placeholder="Username *" value="" />
-                    <input type="password" class="login" placeholder="Password *" value="" />
-                    <input type="text" class="login" placeholder="Email *" value="" />
-                    <input type="submit" class="btnSubmit" value="Create" style="padding: 10px; margin:0;" />
-                    <div style="text-align: center; padding:40px">
-                        Already registered? <a href="login.html">Sign In </a>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <form action="login.html">
+          <input type="text" class="login" placeholder="Username *" value="" />
+          <input type="password" class="login" placeholder="Password *" value="" />
+          <input type="text" class="login" placeholder="Email *" value="" />
+          <input type="submit" class="btnSubmit" value="Create" style="padding: 10px; margin:0;" />
+          <div style="text-align: center; padding:40px">
+            Already registered? <a href="login.html">Sign In </a>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 
 
   <!--footer-->
-      <h4>©️2020 Paper Trail. All Rights Reserved.</h4>
-    </p>
+  <h4>©️2020 Paper Trail. All Rights Reserved.</h4>
+  </p>
 
 </body>
 

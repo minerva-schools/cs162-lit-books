@@ -6,11 +6,12 @@
   <title>Paper Trail</title>
   <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  <!-- <link rel="stylesheet" href="css/styles.css" /> -->
 </head>
 
 <body>
 
-  <!--navigation bar-->
+  <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
     <a href="index_signed_in.html" class="active">Paper Trail</a>
     <a href="users.html">My Page</a>
@@ -21,7 +22,7 @@
     </a>
   </div>
 
-  <!--javascript for navigation bar-->
+  <!-- javascript for navigation bar -->
   <script>
     function myFunction() {
       var x = document.getElementById("myTopnav");
@@ -33,75 +34,159 @@
     }
   </script>
 
-  <!--book info-->
+  <!-- login overlay-->
+  <!-- Elena: If a new book receiver access to this website by using the website URL
+  that their friend gives him/her, he/she should see this window. It is
+  required to login to click the "I'm a new book receiver" button-->
+
+  <!-- Elena: However, if a user is already loged in, make sure that this window
+  does not appear. -->
+
+  <!-- Elena: Feel free to move this login to a seperate page too. But make sure
+  the overlay effect still works, and the user should only need to type in
+  the website address once.-->
+
+  <div id="overlay_login">
+    <div class="overlay"></div>
+    <div class="modal6">
+      <div class="login-form">
+        <h1>Login</h1>
+        <form>
+          <input type="text" class="login" placeholder="Username *" value="" />
+          <input type="password" class="login" placeholder="Password *" value="" />
+          <input type="button" class="btnSubmit" value="Login" style="padding: 10px; margin:0;" onclick="off_login()" />
+          <div style="text-align: center; padding:40px">
+            Haven't registered?
+            <a onclick="on_signup()" style="cursor:pointer">
+              Create an account </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- signup overlay-->
+  <!-- The user can also diractly signup here.  -->
+  <div id="overlay_signup">
+    <div class="overlay"></div>
+    <div class="modal7">
+      <div class="login-form">
+        <h1>Create an Account</h1>
+        <form>
+          <input type="text" class="login" placeholder="Username *" value="" />
+          <input type="password" class="login" placeholder="Password *" value="" />
+          <input type="text" class="login" placeholder="Email *" value="" />
+          <input type="button" class="btnSubmit" value="Create" style="padding: 10px; margin:0;" onclick="on_login()" />
+          <div style="text-align: center; padding:40px">
+            Already registered?
+            <a onclick="on_login()" style="cursor:pointer">
+              Sign In </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Book info -->
   <br><br>
   <h1>Milk and Honey</h1>
   <h3>Author: Rupi Kaur</h3>
   <h3>Shared by: Helena Mance</h3>
 
+  <!-- two buttons -->
+
+  <!-- New Reader Button -->
+  <!-- Elena: This button should disappear when the user add the book to "my page" -->
   <div id="wrapper">
     <button class="button" onclick="on()" style=margin:10px>I'm a new book receiver 😀</button>
   </div>
 
+  <!-- Finish Reading Button -->
+  <!-- Elena: This button should disappear when the user add the letter -->
   <div id="wrapper">
     <button class="button" onclick="on_finish()" style=margin:10px>I've finished reading the book! 😎</button>
   </div>
 
   <br><br>
 
-  <!--book comment/letter section-->
+  <!-- book comment/letter section -->
   <div class="comment_section">
     <br>
+
+    <!-- letter 1 -->
     <div class="comment">
       <h5>Elena Cai</h5> | <h6>January 15, 2021 </h6>
       <i class="fas fa-ellipsis-h" style="float:right; cursor:pointer" onclick="on_report()"></i>
-      <hr>
-      我看到这本书时，并没有想到它会给我带来这么大的触动。它是通过一个包裹邮寄到我家的，
-      黑色的封皮上写着简单的五个字：牛奶与蜂蜜。milk and honey. 就是这么简单。它是关于什么
-      的呢，一句话很难说清。关于爱情，关于治愈，关于寻找自我，关于生命的意义。
+      <!-- Elena: make sure this only links to reporting one letter  -->
 
-      每一页都是一篇小诗，或是一篇不长的短文。从遭遇伤痛，到自我治愈，作者用简单的笔调描绘了她
-      的心理历程，也开创了人们对于诗歌的新印象。读起来非常顺畅，而每一句话却意味深长。初读这本
-      书，觉得它的文字，实在有些露骨，过半后发现，那行行文字间，是作者想传递的关于爱和生命的颂
-      歌与呼喊，而那，怎么露骨都不为过。很佩服这本书的译者，将英文原文翻译地那么流畅而不失韵味，
-      每一句中文的押韵，都不禁让人拍手叫好。
+      <hr>
+      I’m very grateful that I received this book. When I saw this book,
+      I didn't think it would bring me such a big touch. It was mailed to my
+      home in a parcel. The black cover was written with simple five words:
+      milk and honey. Milk and honey. It's that simple. What it is about is
+      hard to say in one sentence. About love, about healing, about finding
+      self, and about the meaning of life. Each page is a small poem, or a
+      short essay. From suffering pain to self-healing, the author described
+      her psychological journey with simple brush strokes, and also created a
+      new impression of poetry. It reads very smoothly, but each sentence is
+      meaningful.
+      <br><br>
+      <!-- Make sure to put two <br> when user change a line -->
+      After reading this book for the first time, I felt that its
+      text was really explicit. After half a while, I found that between the
+      lines of text, the chants and shouts about love and life that the author
+      wanted to convey, and that was too exaggerated.
     </div>
     <br>
 
-
+    <!-- letter 2 -->
     <div class="comment">
-      <h5>Sho</h5> | <h6>March 4, 2020 </h6>
+      <h5>Simon Green</h5> | <h6>January 15, 2021 </h6>
       <i class="fas fa-ellipsis-h" style="float:right; cursor:pointer" onclick="on_report()"></i>
       <hr>
-      本書をご覧になった際に、これが私たちの家に送られることを思いもしませんでした。 はちみつ。
-      これは、治療の観点、私たちの観点、生命の観点から明らかです。
-
-      いずれも痛みを経験し、私たちの治療法になり、作者は自分の心理的な手順を説明し、歌に対する
-      新しい印象を与えました。 この本を最初に読んで、その文字を取得し、いくつかの骨で実際に実
-      行され、その間文字列を実行します。 この本の著者は、すべての人に拍手を送ることです。
+      I’m very grateful that I received this book. When I saw this book,
+      I didn't think it would bring me such a big touch. It was mailed to my
+      home in a parcel. The black cover was written with simple five words:
+      milk and honey. Milk and honey. It's that simple. What it is about is
+      hard to say in one sentence. About love, about healing, about finding
+      self, and about the meaning of life. Each page is a small poem, or a
+      short essay. From suffering pain to self-healing, the author described
+      her psychological journey with simple brush strokes, and also created a
+      new impression of poetry. It reads very smoothly, but each sentence is
+      meaningful.
+      <br><br>
+      After reading this book for the first time, I felt that its
+      text was really explicit. After half a while, I found that between the
+      lines of text, the chants and shouts about love and life that the author
+      wanted to convey, and that was too exaggerated.
     </div>
     <br>
 
+    <!-- letter 3 -->
     <div class="comment">
       <h5>Helena Mance</h5> | <h6>Febrary 21, 2020 </h6>
       <i class="fas fa-ellipsis-h" style="float:right; cursor:pointer" onclick="on_report()"></i>
       <hr>
-      To whom this book gets to: <br><br>
-
+      To whom this book gets to:
+      <br><br>
       Thanks for your curiosity. This book is a gift from my best friend to me
       on the topic of love. It has helped her get out of a breakup last summer,
       and I hope it may help you in whatever way it can. Whether you are in
       love, or enjoying being single, I wish the strength and hope of this book
       can enlighten you and empower you even more. Don’t forget to share this
       book after reading it.
-
-      <br><br>Sending love,
-      <br>Helena Mance
+      <br><br>
+      Sending love,
+      <br>
+      Helena Mance
     </div>
 
 
-    <!-- New Reciever Overlay -->
-    <div id="overlay_new_reciever">
+    <!-- New Receiver Overlay -->
+    <!-- This appears when the user clicks the new receiver button -->
+    <div id="overlay_new_receiver">
       <div class="overlay"></div>
       <div class="modal">
         <div style="padding:10px; margin-top:20px; margin-bottom:10px">
@@ -117,7 +202,7 @@
 
           <br><br>
 
-          Now, we kindly ask you to confirm that you are the new reciever.
+          Now, we kindly ask you to confirm that you are the new receiver.
           Once you confirm, all the past readers will notice, and the book will
           be added to your personal page.
           <br><br>
@@ -126,11 +211,17 @@
         </div>
 
         <div id="wrapper">
-          <button class="button" onclick="off()" style=margin:10px>Confirm and begin 😄</button>
+          <button class="button" onclick="off()" style=margin:10px>
+            Confirm and begin 😄</button>
+          <!-- Elena: When the user click this button, the button "I'm a new book
+          receiver" should disappear. -->
         </div>
 
         <div id="wrapper">
-          <button class="button" onclick="off()" style=margin:10px>Cancel 😔</button>
+          <button class="button" onclick="off()" style=margin:10px>
+            Cancel 😔</button>
+          <!-- Elena: When the user click this button, the button "I'm a new book
+          receiver" should NOT disapper. -->
         </div>
 
       </div>
@@ -138,6 +229,7 @@
 
 
     <!-- I finished reading Overlay -->
+    <!-- This overlay appears when the user clicks "I finished reading the book" button -->
     <div id="overlay_finish">
       <div class="overlay"></div>
       <div class="modal">
@@ -156,21 +248,25 @@
 
           Note that your reflection cannot be changed once you submit.
           Click confirm if you are ready.
-
         </div>
 
         <div id="wrapper">
-          <button class="button" onclick="on_letter()" style=margin:10px>Confirm and begin 😄</button>
+          <button class="button" onclick="on_letter()" style=margin:10px>
+            Confirm and begin 😄</button>
         </div>
 
         <div id="wrapper">
-          <button class="button" onclick="off_finish()" style=margin:10px>Cancel 😔</button>
+          <button class="button" onclick="off_finish()" style=margin:10px>
+            Cancel 😔</button>
+          <!-- Elena: When the user click this button, the "I've finished reading
+          the book" button should NOT disappear. -->
         </div>
       </div>
     </div>
 
 
     <!-- Letter Overlay -->
+    <!-- This appears when the user clicks "Confirm and begin" to a write letter. -->
     <div id="overlay_letter">
       <div class="overlay"></div>
       <div class="modal2">
@@ -188,22 +284,35 @@
         </div>
         <div>
           <div id="wrapper">
-            <a href="book_page.html" class="button" onclick="off_letter()" style="margin:8px; width: 300px">Done and Send 😄</a>
+            <a href="book_page.html" class="button" onclick="off_letter()" style="margin:8px; width: 300px">
+              Done and Send 😄</a>
+            <!-- Elena: When the user clicks this button, the letter should
+            upload to the database, and the button of "I've finished reading
+            the book!" should disapper. The letter should display in the
+            book page. -->
           </div>
           <div id="wrapper">
-            <button class="button" onclick="off_letter()" style="margin:8px; width:300px">Cancel 😔</button>
+            <button class="button" onclick="off_letter()" style="margin:8px; width:300px">
+              Cancel 😔</button>
+            <!-- Elena: When the user click this button, the "I've finished
+            reading the book" button should NOT disappear. -->
           </div>
         </div>
       </div>
     </div>
 
 
-    <!-- Report, Edit, Cancel -->
+    <!-- Report, Cancel -->
+    <!-- Elena: This appears when the user clicks the report button (three dots),
+    this should appear. Make sure that it links to an UNIQUE letter -->
     <div id="overlay_report">
       <div class="overlay"></div>
       <div class="modal5">
         <a onclick="off_report()" style="text-decoration:none">
-          <div style="text-align:center; margin:15px; cursor:pointer; color: #EC4956">Report Inappropriate</div>
+          <div style="text-align:center; margin:15px; cursor:pointer; color: #EC4956">
+            Report Inappropriate</div>
+          <!-- Elena: When the user click this button, the report message should
+          be sent to the data base, and the user should see the book page.  -->
         </a>
 
         <hr style="margin:0">
@@ -214,57 +323,14 @@
     </div>
 
 
-
-    <!-- login overlay-->
-    <div id="overlay_login">
-      <div class="overlay"></div>
-      <div class="modal6">
-        <div class="login-form">
-          <h1>Login</h1>
-          <form>
-            <input type="text" class="login" placeholder="Username *" value="" />
-            <input type="password" class="login" placeholder="Password *" value="" />
-            <input type="button" class="btnSubmit" value="Login" style="padding: 10px; margin:0;" onclick="off_login()" />
-            <div style="text-align: center; padding:40px">
-              Haven't registered?
-              <a onclick="on_signup()" style="cursor:pointer">
-                Create an account </a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- signup overlay-->
-    <div id="overlay_signup">
-      <div class="overlay"></div>
-      <div class="modal7">
-        <div class="login-form">
-          <h1>Create an Account</h1>
-          <form>
-            <input type="text" class="login" placeholder="Username *" value="" />
-            <input type="password" class="login" placeholder="Password *" value="" />
-            <input type="text" class="login" placeholder="Email *" value="" />
-            <input type="button" class="btnSubmit" value="Create" style="padding: 10px; margin:0;" onclick="on_login()" />
-            <div style="text-align: center; padding:40px">
-              Already registered?
-              <a onclick="on_login()" style="cursor:pointer">
-                Sign In </a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-
     <script>
+      // These are functions that display or closes the overlay notification windows.
       function on() {
-        document.getElementById("overlay_new_reciever").style.display = "block";
+        document.getElementById("overlay_new_receiver").style.display = "block";
       }
 
       function off() {
-        document.getElementById("overlay_new_reciever").style.display = "none";
+        document.getElementById("overlay_new_receiver").style.display = "none";
       }
 
       function on_finish() {
