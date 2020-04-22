@@ -42,7 +42,7 @@ class Letter(db.Model):
     def __repr__(self):
         return "<Letter(id={0}, book_id={1}, user_id={2}, date={3}, message={4})".format(self.id, self.book_id, self.user_id, self.date, self.message)
 
-class Current_Onwer(db.Model):
+class Current_Owner(db.Model):
     __tablename__ = "current_owner"
     book_id = Column(String, ForeignKey('books.id'), primary_key=True)
     current_owner_id = Column(Integer, ForeignKey('users.id'))
