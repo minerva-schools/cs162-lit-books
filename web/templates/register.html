@@ -14,8 +14,8 @@
   <!--navigation bar-->
   <div class="topnav" id="myTopnav">
     <a href="index.html" class="active">Paper Trail</a>
-    <a href="login.html">Login</a>
-    <a href="about.html">About</a>
+    <a href="{{ url_for('login')}}">Login</a>
+    <a href="{{ url_for('about')}}">About</a>
     <a href="sample.html">Sample</a>
 
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -40,18 +40,24 @@
     <div class="login-box">
       <div class="login-form">
         <h1>Create an account</h1>
-                <form action="login.html">
-                    <input type="text" class="login" placeholder="Username *" value="" />
-                    <input type="password" class="login" placeholder="Password *" value="" />
-                    <input type="password" class="login" placeholder="Email *" value="" />
-                    <input type="submit" class="btnSubmit" value="Create" style="padding: 10px; margin:0;" />
-                    <div style="text-align: center; padding:40px">
-                        Already registered? <a href="login.html">Sign In </a>
-                    </div>
-                </form>
+        <!-- Form -->
+        <form method="POST">
+            <input class="login" type="text" placeholder="Username" name="username" required />
+            <input class="login" type="text" placeholder="Name" name="name" required />
+            <input class="login" type="password"  placeholder="Password" name="password" required />
+            <input class="login" type="email"  placeholder="Email" name="email"  required/>
+            <input type="submit" class="btnSubmit" value="Create" style="padding: 10px; margin:0;" />
+            <div style="text-align: center; padding:40px">
+                Already registered? <a href="{{ url_for('login')}}">Sign In </a>
             </div>
-        </div>
+        </form>
+        <!-- Flash message -->
+        {% for message in get_flashed_messages() %}
+            <div class=flash>{{ message }}</div>
+        {% endfor %}
+      </div>
     </div>
+  </div>
 
 
   <!--footer-->

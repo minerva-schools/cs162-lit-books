@@ -13,8 +13,8 @@
   <!--navigation bar-->
   <div class="topnav" id="myTopnav">
     <a href="index_signed_in.html" class="active">Paper Trail</a>
-    <a href="index.html">Sign Out</a>
-    <a href="about.html">About</a>
+    <a href="{{ url_for('booksearch')}}">Sign Out</a>
+    <a href="{{ url_for('about')}}">About</a>
     <a href="sample.html">Sample</a>
 
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -38,40 +38,13 @@
   <!--main design-->
 
   <br> <br>
-  <h1>Elena Cai</h1>
+  <h1>{{user_name}}</h1>
   <h3>3 Shared · 9 Recieved </h3>
 
   <!--Shared by me-->
   <div class="card-row">
     <br>
     <h2 style="padding-left:10px; color:#222831; margin:0"> Shared by me </h2>
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
     <a href="book_page.html">
       <div class="card-col">
         <div class="card">
@@ -98,7 +71,7 @@
   <div class="card-row">
     <br><br>
     <h2 style="padding-left:10px; color:#222831; margin:0"> Shared with me </h2>
-    <a href="book_page.html">
+    <a>
       <div class="card-col">
         <div class="card">
           <h3 style="color:white">Milk and Honey</h3>
@@ -107,43 +80,7 @@
       </div>
     </a>
 
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
-  <a href="book_page.html">
+  <a>
     <div class="card-col">
       <div class="card" style="background-color:#eeeeee; border-style: dashed;
       border-color: #00adb5;">
@@ -170,21 +107,23 @@
       basic information below, and then send the book to one of your connections.
       <br><br>
 
-      <form action="/action_page.php">
+      <form action="/add" method="POST">
         <label for="fname">Book Name:</label><br>
-        <input type="text" style="background-color:#eeeeee; padding:10px; margin-bottom:10px; border-radius:5px" value=""><br>
+        <input type="text" style="background-color:#eeeeee; padding:10px; margin-bottom:10px; border-radius:5px" name="title" ><br>
 
         <label for="lname">Author Name:</label><br>
-        <input type="text" style="background-color:#eeeeee; padding:10px; border-radius:5px" value=""><br><br>
+        <input type="text" style="background-color:#eeeeee; padding:10px; border-radius:5px" name="author"><br><br>
+
+        <div id="wrapper">
+          <button type="submit" class="button" onclick="on_letter()" style=margin:10px>Next 😄</button>
+        </div>
       </form>
 
       <div id="wrapper">
         <button class="button" onclick="off_add_book_1()" style=margin:10px>Cancel 😔</button>
       </div>
 
-      <div id="wrapper">
-        <button class="button" onclick="on_letter()" style=margin:10px>Next 😄</button>
-      </div>
+      
 
     </div>
   </div>
@@ -202,18 +141,19 @@
       <br><br>
       Share you thoughts with past/future readers!
       What does the book inspire you to think about?
-<form class="form-container">
-<textarea placeholder="Type message.." name="msg" required></textarea>
-</form>
 
+      <!-- Form -->
+      <form class="form-container">
+        <textarea placeholder="Type message.." name="msg" required></textarea>
+        <div id="wrapper">
+          <button class="button" onclick="on_done()" style="margin:8px; width:300px">Done 😔</button>
+        </div>
+      </form>
     </div>
+
     <div>
       <div id="wrapper">
         <button class="button" onclick="off_letter()" style="margin:8px; width:300px">Cancel 😔</button>
-      </div>
-
-      <div id="wrapper">
-        <button class="button" onclick="on_done()" style="margin:8px; width:300px">Done 😔</button>
       </div>
     </div>
 

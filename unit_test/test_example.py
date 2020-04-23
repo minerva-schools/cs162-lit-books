@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import os
 import tempfile
 import unittest
@@ -29,6 +30,17 @@ class BasicTests(unittest.TestCase):
         db.drop_all()
 
     # user authentication methods
+=======
+# Example taken from:
+# http://flask.pocoo.org/docs/1.0/testing/
+# and suitably modified.
+# import os
+# import tempfile
+
+# import pytest
+
+# from web import app, db
+>>>>>>> 6d8ab052334af0c9fe41743d6196eb1be2609130
 
     def signup(self, username, password, email, confirm):
         return self.app.post(
@@ -37,6 +49,7 @@ class BasicTests(unittest.TestCase):
             follow_redirects=True
         )
 
+<<<<<<< HEAD
     def login(self, username, password):
         return self.app.post(
             '/login',
@@ -55,11 +68,24 @@ class BasicTests(unittest.TestCase):
     def test_valid_user_signup(self):
         response = self.signup('test', 'test1', 'test@test.com')
         self.assertEqual(response.status_code, 200)
+=======
+# @pytest.fixture
+# def client():
+#     db_fd, app.config['DATABASE'] = tempfile.mkstemp()
+#     app.config['TESTING'] = True
+#     client = app.test_client()
+
+#     yield client
+
+#     os.close(db_fd)
+#     os.unlink(app.config['DATABASE'])
+>>>>>>> 6d8ab052334af0c9fe41743d6196eb1be2609130
 
     def test_valid_user_login(self):
         response = self.login('test@test.com', 'test1')
         self.assertEqual(response.status_code, 200)
 
+<<<<<<< HEAD
     def test_valid_user_logout(self):
         response = self.logout()
         self.assertEqual(response.status_code, 200)
@@ -68,3 +94,22 @@ class BasicTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+=======
+# def test_empty_db(client):
+#     """Start with a blank database."""
+
+#     rv = client.get('/')
+#     assert b'Hello World!' in rv.data
+
+# def login(client, username, password):
+#     return client.post('/login', data=dict(
+#     username="sho",
+#     password="password"
+#     ), follow_redirects=True)
+
+# def logout(client):
+#     return client.get('/logout', follow_redirects=True)
+        
+# if __name__ == '__main__':
+#     unittest.main()
+>>>>>>> 6d8ab052334af0c9fe41743d6196eb1be2609130
