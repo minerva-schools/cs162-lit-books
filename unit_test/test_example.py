@@ -1,40 +1,40 @@
 # Example taken from:
 # http://flask.pocoo.org/docs/1.0/testing/
 # and suitably modified.
-import os
-import tempfile
+# import os
+# import tempfile
 
-import pytest
+# import pytest
 
-from web import app, db
-
-
-@pytest.fixture
-def client():
-    db_fd, app.config['DATABASE'] = tempfile.mkstemp()
-    app.config['TESTING'] = True
-    client = app.test_client()
-
-    yield client
-
-    os.close(db_fd)
-    os.unlink(app.config['DATABASE'])
+# from web import app, db
 
 
-def test_empty_db(client):
-    """Start with a blank database."""
+# @pytest.fixture
+# def client():
+#     db_fd, app.config['DATABASE'] = tempfile.mkstemp()
+#     app.config['TESTING'] = True
+#     client = app.test_client()
 
-    rv = client.get('/')
-    assert b'Hello World!' in rv.data
+#     yield client
 
-def login(client, username, password):
-    return client.post('/login', data=dict(
-    username="sho",
-    password="password"
-    ), follow_redirects=True)
+#     os.close(db_fd)
+#     os.unlink(app.config['DATABASE'])
 
-def logout(client):
-    return client.get('/logout', follow_redirects=True)
+
+# def test_empty_db(client):
+#     """Start with a blank database."""
+
+#     rv = client.get('/')
+#     assert b'Hello World!' in rv.data
+
+# def login(client, username, password):
+#     return client.post('/login', data=dict(
+#     username="sho",
+#     password="password"
+#     ), follow_redirects=True)
+
+# def logout(client):
+#     return client.get('/logout', follow_redirects=True)
         
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
