@@ -15,8 +15,8 @@
   <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
     <a href="index.html" class="active">Paper Trail</a>
-    <a href="register.html">Sign Up</a>
-    <a href="about.html">About</a>
+    <a href="{{ url_for('register')}}">Sign Up</a>
+    <a href="{{ url_for('about')}}">About</a>
     <a href="sample.html">Sample</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars" aria-hidden="true"></i>
@@ -40,16 +40,21 @@
         <div class="login-box">
             <div class="login-form">
                 <h1>Login</h1>
-                <form action="users.html">
-                    <input type="text" class="login" placeholder="Username *" value="" />
-                    <input type="password" class="login" placeholder="Password *" value="" />
+                <form method="POST">
+                    <input type="text" class="login" placeholder="Username" name="username" required />
+                    <input type="password" class="login" placeholder="Password" name="password" required />
                     <input type="submit" class="btnSubmit" value="Login" / style="padding: 10px; margin:0;">
                     <div style="text-align: center; padding:40px">
                         Haven't registered?
-                        <a href="register.html">
+                        <a href="r{{ url_for('register')}}">
                           Create an account </a>
                     </div>
                 </form>
+
+                <!-- Flash message -->
+                {% for message in get_flashed_messages() %}
+                  <div class=flash>{{ message }}</div>
+                {% endfor %}
             </div>
         </div>
     </div>

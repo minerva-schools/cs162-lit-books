@@ -6,7 +6,6 @@
   <title>Paper Trail</title>
   <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-  <!-- <link rel="stylesheet" href="css/styles.css" /> -->
 </head>
 
 <body>
@@ -14,8 +13,8 @@
   <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
     <a href="index_signed_in.html" class="active">Paper Trail</a>
-    <a href="index.html">Sign Out</a>
-    <a href="about.html">About</a>
+    <a href="{{ url_for('booksearch')}}">Sign Out</a>
+    <a href="{{ url_for('about')}}">About</a>
     <a href="sample.html">Sample</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars" aria-hidden="true"></i>
@@ -59,36 +58,6 @@
       </div>
     </a>
 
-    <!-- Book 2 -->
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
-    <!-- Book 3 -->
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
-    <!-- Book 4 -->
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
     <!-- Add a Book Button -->
     <!-- This is where a user can share a book that they own. -->
     <a onclick="on_add_book()" style="cursor:pointer">
@@ -121,45 +90,6 @@
       </div>
     </a>
 
-    <!-- Book 2 -->
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
-    <!-- Book 3 -->
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
-    <!-- Book 4 -->
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
-
-    <!-- Book 5 -->
-    <a href="book_page.html">
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
 
     <!-- Add a new receive -->
     <!-- A user can add a new receive here -->
@@ -178,37 +108,33 @@
 
   <!-- overlay add book -->
   <!-- Add Book -->
-  <div id="overlay_add_book">
+  <div id="overlay_add_book_1">
     <div class="overlay"></div>
     <div class="modal3">
       <div style="padding:10px; margin-top:20px; margin-bottom:10px">
 
-        <h1 style="margin:0">Share a Book!</h1>
+      <h1 style="margin:0">Share a Book!</h1>
 
-        <br><br>
-        Share a book through Paper Trail and see it travels! Please prepare the
-        basic information below, and then send the book to one of your connections.
-        <br><br>
+      <br><br>
+      Share a book through Paper Trail and see it travels! Please prepare the
+      basic information below, and then send the book to one of your connections.
+      <br><br>
 
-        <form action="/action_page.php">
-          <label for="fname">Book Name:</label><br>
-          <input type="text" style="background-color:#eeeeee; padding:10px;
-        margin-bottom:10px; border-radius:5px" value=""><br>
+      <form action="/add" method="POST">
+        <label for="fname">Book Name:</label><br>
+        <input type="text" style="background-color:#eeeeee; padding:10px; margin-bottom:10px; border-radius:5px" name="title" ><br>
 
-          <label for="lname">Author Name:</label><br>
-          <input type="text" style="background-color:#eeeeee; padding:10px;
-        border-radius:5px" value=""><br><br>
-        </form>
+        <label for="lname">Author Name:</label><br>
+        <input type="text" style="background-color:#eeeeee; padding:10px; border-radius:5px" name="author"><br><br>
 
         <div id="wrapper">
-          <button class="button" onclick="on_letter()" style=margin:10px>
-            Next 😄</button>
+          <button type="submit" class="button" onclick="on_letter()" style=margin:10px>Next 😄</button>
         </div>
+      </form>
 
-        <div id="wrapper">
-          <button class="button" onclick="off_add_book()" style=margin:10px>
-            Cancel 😔</button>
-        </div>
+      <div id="wrapper">
+        <button class="button" onclick="off_add_book_1()" style=margin:10px>Cancel 😔</button>
+      </div>
 
       </div>
     </div>
