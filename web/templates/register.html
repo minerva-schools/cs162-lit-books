@@ -5,7 +5,8 @@
   <meta charset="utf-8" />
   <title>Register</title>
   <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
-  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  <!-- <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}"> -->
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
@@ -45,15 +46,9 @@
             <input class="login" type="email"  placeholder="Email" name="email"  required/>
             <input type="submit" class="btnSubmit" value="Create" style="padding: 10px; margin:0;" />
             <div style="text-align: center; padding:40px">
-                Already registered? <a href="{{ url_for('login')}}">Sign In </a>
+                Already registered? <a href="login.html">Sign In </a>
             </div>
         </form>
-
-        <!-- Flash message -->
-        {% for message in get_flashed_messages() %}
-            <div class=flash>{{ message }}</div>
-        {% endfor %}
-        
       </div>
     </div>
   </div>
