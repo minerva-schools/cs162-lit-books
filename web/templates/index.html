@@ -14,7 +14,11 @@
 
   <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
+<<<<<<< HEAD
+    <a href="{{ url_for('booksearch')}}">Paper Trail</a>
+=======
     <a href="{{ url_for('index')}}" class="active">Paper Trail</a>
+>>>>>>> e1e7ebacda59f0de6e8d409485a11bf609e1b50c
     <a href="{{ url_for('login')}}">Login</a>
     <a href="{{ url_for('about')}}">About</a>
     <a href="{{ url_for('sample')}}">Sample</a>
@@ -76,7 +80,7 @@
       </div>
 
     <div id="wrapper">
-      <a href="login.html" class="button" style=margin:10px>Signup/Login to Get Started!</a>
+      <a href="{{url_for('login')}}" class="button" style=margin:10px>Signup/Login to Get Started!</a>
     </div>
     <!-- Elena: This should only appear for visitors that are not signed in.  -->
 

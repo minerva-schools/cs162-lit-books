@@ -31,15 +31,13 @@ import hashlib
 # Page to look up book by ID
 @app.route('/booksearch')
 def booksearch():
-    return render_template('index_signed_in.html')
+    return render_template('index.html')
 
 # Index page
 @app.route('/')
 def index():
     # Redirect to booksearch if logged-in
-    file1 = os.path.join(app.config['UPLOAD_FOLDER'], 'process.png')
-    file2 = os.path.join(app.config['UPLOAD_FOLDER'], 'six.png')
-    return render_template('index.html', file1=file1, file2=file2)
+    return redirect(url_for('booksearch'))
 
 # sample page (book page with sample letters)
 @app.route('/sample')
