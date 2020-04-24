@@ -8,8 +8,7 @@
 
 {% block content %}
 
-<!-- Main Page -->
-<p><br>
+<p>
   <div class="bar">
     <h1>Paper Trail</h1>
 
@@ -49,13 +48,11 @@
     </div>
 
   <!-- Elena: This should only appear for visitors that are not signed in.  -->
-  <!-- {% if g.user %} -->
+  <!-- add jinja if control to check if signed in-->
     <div id="wrapper">
-      <a href="{{url_for('login')}}" class="button" style=margin:10px>Signup/Login to Get Started!</a>
+      <a href="{{ url_for('login') }}" class="button" style=margin:10px>Signup/Login to Get Started!</a>
     </div>
-  <!-- {% endif} -->
-  
-  <br><br>
-  </p>
+
+</p>
 
 {% endblock %}
