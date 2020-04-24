@@ -187,7 +187,7 @@ def letter(bookid):
 # Book listing
 @app.route('/book/id/<bookid>')
 def book(bookid):
-    return render_template('book_page.html', bookid=bookid)
+    return render_template('book_page.html')
 
 # User profile by username
 @app.route('/user/<username>')
