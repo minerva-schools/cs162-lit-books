@@ -19,18 +19,20 @@
 
 <!-- Latest Share (1) -->
 <!--Shared by me-->
+
 <div class="card-row">
   <br>
   <h2 style="padding-left:10px; color:#222831; margin:0"> Shared by me </h2>
-  <a href="book_page.html">
+  {% for item in owned_books %}
+  <a href={{ url_for('book', bookid = item.id) }}>
     <div class="card-col">
       <div class="card">
-        <h3 style="color:white">Milk and Honey</h3>
-        <h6>Rupi Kaur</h6>
+        <h3 style="color:white">{{ item.title }}</h3>
+        <h6>{{ item.author_name }}</h6>
       </div>
     </div>
   </a>
-
+  {% endfor %}
   <a onclick="on_add_book_1()" style="cursor:pointer">
     <div class="card-col" >
       <div class="card" style="background-color:#eeeeee; border-style: dashed;

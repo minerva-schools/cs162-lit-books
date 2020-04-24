@@ -166,7 +166,6 @@ def add_book():
 def book(bookid):
     return render_template('book_page.html')
 
-
 # User profile by username
 @app.route('/user/<username>')
 def user_byusername(username):
@@ -181,7 +180,10 @@ def user_byusername(username):
                         ).filter(Current_Owner.current_owner_id == user.id
                         ).filter(Current_Owner.orig_owner == 0
                         ).count()
-    return render_template('users.html', user=user, nowned=nowned, nreceived=nreceived)
+    owned_books = db.session.query(Book
+                        ).filter(Book.owner == user.id
+                        ).all()
+    return render_template('users.html', user=user, nowned=nowned, nreceived=nreceived, owned_books=owned_books)
 
 # User profile by id
 @app.route('/user/id/<int:userid>')
