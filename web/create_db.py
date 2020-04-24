@@ -16,7 +16,7 @@ class User(db.Model):
     email = Column(Text, index = True)
 
     def __repr__(self):
-        return "<User(id={0}, username={1}, name ={2}, password={3}, email={4})".format(self.id, self.username, self.name, self.password, self.email)
+        return "<User(id={0}, username={1}, name ={2}, salt={3}, password={4}, email={5})".format(self.id, self.username, self.name, self.salt, self.password, self.email)
 
 class Book(db.Model):
     """Table of books"""
@@ -28,7 +28,7 @@ class Book(db.Model):
     users = relationship('User')
 
     def __repr__(self):
-        return "<Book(id={0}, title={1}, author_name={2}, language={3}, owner={4}, current_owner={5})".format(self.id, self.title, self.author_name, self.language, self.owner, self.current_owner)
+        return "<Book(id={0}, title={1}, author_name={2}, owner={3})".format(self.id, self.title, self.author_name, self.owner)
 
 class Letter(db.Model):
     """Table of letters"""
