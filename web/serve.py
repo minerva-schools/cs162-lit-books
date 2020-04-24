@@ -168,8 +168,9 @@ def book(bookid):
 # User profile by username
 @app.route('/user/<username>')
 def user_byusername(username):
-    if username == None:
+    if username == "None":
         username = session.get('username')
+        return redirect(url_for('user_byusername', username=username))
     user = db.session.query(User).filter(User.username == username).first()
     return render_template('users.html', user=user)
 
