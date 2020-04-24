@@ -44,6 +44,14 @@ class Letter(db.Model):
     def __repr__(self):
         return "<Letter(id={0}, book_id={1}, user_id={2}, date={3}, message={4})".format(self.id, self.book_id, self.user_id, self.date, self.message)
 
+class Current_Owner(db.Model):
+    __tablename__ = "current_owner"
+    book_id = Column(String, ForeignKey('books.id'), primary_key=True)
+    current_owner_id = Column(Integer, ForeignKey('users.id'))
+    orig_owner = Column(Integer) #1 if original owner, 0 otherwise
+    books = relationship('Book')
+    users = relationship('User')
+
 class BookTransactions(db.Model):
     """Table containing all book transactions (transfer of ownership between
     users)"""
