@@ -32,7 +32,9 @@ class BasicTests(unittest.TestCase):
         # Create an account with username="CS162" password = "ProfStern"
         self.app.post('/signup',
                       data = dict(username = "CS162",
-                                  password = "ProfSterne"),
+                                  password = "ProfSterne",
+                                  email = "sterne@gmail.com",
+                                  name = "sterne"),
                       follow_redirects = True)
 
         User = db.session.query(Users).filter(Users.username == "CS162").first()
