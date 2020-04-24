@@ -8,7 +8,7 @@ import json, itsdangerous
 from functools import wraps
 
 from web import db,app
-from .create_db import User, Book, Letter, Current_Owner
+from .create_db import User, Book, Letter, Current_Owner, BookTransactions
 import hashlib
 
 
