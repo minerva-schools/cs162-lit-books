@@ -48,6 +48,7 @@ class Current_Owner(db.Model):
     __tablename__ = "current_owner"
     book_id = Column(String, ForeignKey('books.id'), primary_key=True)
     current_owner_id = Column(Integer, ForeignKey('users.id'))
+    orig_owner = Column(Integer) #1 if original owner, 0 otherwise
     books = relationship('Book')
     users = relationship('User')
 
