@@ -4,6 +4,8 @@ from sqlalchemy import func
 from datetime import datetime
 import os
 import random
+import json, itsdangerous
+from functools import wraps
 
 from web import db,app
 from .create_db import User, Book, Letter, Current_Owner
@@ -28,6 +30,26 @@ import hashlib
 
 # db.create_all() #create all tables
 #####################################################
+
+def login_required(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        username = session.get('username')
+        try:
+            _session = request.cookies["session"].partition('.')[0]
+        except KeyError:
+            session_username = None
+        else:
+            session_username = json.loads(itsdangerous.base64_decode(_session).decode('utf-8')).get('username')
+
+        print(username, session_username)
+        if username is None or session_username is None or username != session_username: #is checks for identity, since None is a singleton
+            flash ('Please log in to use')
+            return redirect(url_for('login'))
+
+        return func(*args, **kwargs)
+    return wrapper
+
 
 # Page to look up book by ID
 @app.route('/booksearch')
@@ -54,6 +76,7 @@ def about():
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     session.pop('username', None)
+    session.clear()
     flash('You were logged out')
     return redirect(url_for('login'))
 
@@ -142,14 +165,11 @@ def valid_book_id():
             return book_id
 ###############
 # Add a new book
+
 @app.route('/add', methods=["POST","GET"])
+@login_required
 def add_book():
     username = session.get('username')
-
-    if username == None:
-        flash ('Please log in to use')
-        return redirect(url_for('login'))
-
     user = db.session.query(User).filter(User.username == username).first()
     title = request.form['title']
     author = request.form['author']
@@ -163,11 +183,13 @@ def add_book():
 
 # Book listing
 @app.route('/book/id/<bookid>')
+@login_required
 def book(bookid):
     return render_template('book_page.html')
 
 # User profile by username
 @app.route('/user/<username>')
+@login_required
 def user_byusername(username):
     if username == None:
         username = session.get('username')
