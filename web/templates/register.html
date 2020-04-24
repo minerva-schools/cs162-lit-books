@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <title>Register</title>
   <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='login.css') }}">
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 </head>
 
@@ -12,7 +13,7 @@
 
   <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
-    <a href="{{ url_for('index')}}" class="active">Paper Trail</a>
+    <a href="{{ url_for('booksearch')}}" class="active">Paper Trail</a>
     <a href="{{ url_for('login')}}">Login</a>
     <a href="{{ url_for('about')}}">About</a>
     <a href="{{ url_for('sample')}}">Sample</a>
