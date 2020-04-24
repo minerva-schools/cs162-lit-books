@@ -1,76 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="utf-8" />
-  <title>Paper Trail</title>
-  <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
-  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-  <!-- <link rel="stylesheet" href="css/styles.css" /> -->
-</head>
+{% block head %}
+  {{ super() }}
+{% endblock %}
 
-<body>
+{% block title %} About {% endblock %}
 
-  <!-- navigation bar -->
-  <div class="topnav" id="myTopnav">
-    <a href="{{ url_for('booksearch')}}" class="active">Paper Trail</a>
-    <a href="{{ url_for('user_byusername', username='None')}}">My Page</a>
-    <a href="{{ url_for('about')}}">About</a>
-    <a href="{{ url_for('sample')}}">Sample</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars" aria-hidden="true"></i>
-    </a>
+{% block content %}
+<!-- Main Body -->
+<!-- Feel free to edit the text in this page -->
+<p>
+  <br>
+  <div class="bar">
+    <h1>About Paper Trail</h1>
+
+    <br>
+    <h2>What's Paper Trail? 🤓</h2>
+    <h7> At Paper Trail, we help you to Explore six
+      degrees of connection through a book. Share a book with your friend throgh
+      Paper Trail. Challenge your friend to read and share the book to one of
+      their connections. Repeat the process until you get to the six degrees of
+      connection. Paper Trail will help you to track your book along the way!
+    </h7>
+    <br>
+
+    <h2>What's a Book ID? 🧐</h2>
+    <h7>Each book that's shared on paper trail has an unique
+      book ID. If you just recieved a book from your friend, ask for the book ID to load
+      and type it to the home page to access the unique book page. If you would like to
+      share a book and get a Book ID, please click share! </h3>
+    </h7>
+
+    <h2>Still Confused? 🤨</h2>
+    <h7>Check out our sample page! At here, you will
+      see what a book page looks like. Within the book page, new readers can
+      post letters for exchanging insights. </h7>
+    <br>
   </div>
-
-  <!-- javascript for navigation bar -->
-  <script>
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
-  </script>
-
-  <!-- Main Body -->
-  <!-- Feel free to edit the text in this page -->
-  <p>
-
-    <br>
-    <div class="bar">
-      <h1>About Paper Trail</h1>
-
-      <br>
-      <h2>What's Paper Trail? 🤓</h2>
-      <h7> At Paper Trail, we help you to Explore six
-        degrees of connection through a book. Share a book with your friend throgh
-        Paper Trail. Challenge your friend to read and share the book to one of
-        their connections. Repeat the process until you get to the six degrees of
-        connection. Paper Trail will help you to track your book along the way!
-      </h7>
-      <br>
-
-      <h2>What's a Book ID? 🧐</h2>
-      <h7>Each book that's shared on paper trail has an unique
-        book ID. If you just recieved a book from your friend, ask for the book ID to load
-        and type it to the home page to access the unique book page. If you would like to
-        share a book and get a Book ID, please click share! </h3>
-      </h7>
-
-      <h2>Still Confused? 🤨</h2>
-      <h7>Check out our sample page! At here, you will
-        see what a book page looks like. Within the book page, new readers can
-        post letters for exchanging insights. </h7>
-      <br>
-    </div>
-    <br>
-
-    <!-- footer -->
-    <h4>©️2020 Paper Trail. All Rights Reserved.</h4>
-  </p>
-
-</body>
-
-</html>
+  <br>
+</p>
+{% endblock %}

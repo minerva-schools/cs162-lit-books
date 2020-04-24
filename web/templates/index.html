@@ -1,91 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="utf-8" />
-  <title>Paper Trail</title>
-  <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
-  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-  <!-- <link rel="stylesheet" href="css/styles.css" /> -->
+{% block head %}
+  {{ super() }}
+{% endblock %}
 
-</head>
+{% block title %} Main {% endblock %}
 
-<body>
+{% block content %}
 
-  <!-- navigation bar -->
-  <div class="topnav" id="myTopnav">
-    <a href="{{ url_for('index')}}" class="active">Paper Trail</a>
-    <a href="{{ url_for('login')}}">Login</a>
-    <a href="{{ url_for('about')}}">About</a>
-    <a href="{{ url_for('sample')}}">Sample</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars" aria-hidden="true"></i>
-    </a>
-  </div>
+<p>
+  <div class="bar">
+    <h1>Paper Trail</h1>
 
-  <!-- javascript for navigation bar -->
-  <script>
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
-  </script>
-
-  <!-- Main Page -->
-  <p><br>
-    <div class="bar">
-      <h1>Paper Trail</h1>
-
-      <h3>"A book read by a thousand different people is a thusand different books."
-        - Andre Tarkovsky. </h3>
-
-      <br><br>
-      <h2>We Challenge You to Read, Reflect, and Share! </h2>
-      <h3 style="text-align:left">Paper Trail challenges you to read a book that
-        you always wanted to read, reflect along when reading the book,
-        then share the book with one of your connections. </h3>
-
-      <!-- Elena: Feel free to edit the text here. -->
-      <img
-        src="https://images.squarespace-cdn.com/content/v1/5a29de216957dab4049b897d/1587690248848-96BPEPZ76460ZCCP8723/ke17ZwdGBToddI8pDm48kIzN4wyeHCRGna8ObAkdGAYUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnKwsWVXmS1mWX-HywvgF8KWBPTOfKVsHhHENCxSfCSJg_8ZhyaIGnlcaXB-Tpx2PEw/process.png?format=2500w"
-        alt="process" , width="100%" , style="padding-bottom:50px">
-
-      <br><br>
-      <h2>Explore Six Degrees of Connection Through a Book! </h2>
-      <h3 style="text-align:left">Challenge your friend to read and share the book to one of
-        their connections. Repeat the process until you get to the six degrees of
-        connection. Paper Trail will help you to track your book along the way!</h3>
-
-      <!-- Elena: Feel free to edit the text here. -->
-      <img
-        src="https://images.squarespace-cdn.com/content/v1/5a29de216957dab4049b897d/1587690267659-FDP4I2VW3IN7EPZHA7XU/ke17ZwdGBToddI8pDm48kHW7X2IM7lHrjoL4OVS-xxgUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnMti0gYjOLPVMHIb0DVbrfLAYag9SjYctldINorPEPAjwtUNvS_TQqaOU-48xu92Vw/six.png?format=2500w"
-        alt"six degrees of connection", width="100%" , style="padding-bottom:50px" />
-
-      <br><br>
-      <h2>We build a webpage for each book that you share! </h2>
-      <h3 style="text-align:left">Paper Trail helps you to build a page for each
-        book that you share, so you can always track your book's status. On this page,
-        you can read through all book recievers' letter. Check out our sample page
-        to see what a book page looks like.</h3>
-      <!-- Elena: Feel free to edit the text here -->
-
-      </div>
-
-    <div id="wrapper">
-      <a href="{{url_for('login')}}" class="button" style=margin:10px>Signup/Login to Get Started!</a>
-    </div>
-    <!-- Elena: This should only appear for visitors that are not signed in.  -->
+    <h3>"A book read by a thousand different people is a thusand different books."
+      - Andre Tarkovsky. </h3>
 
     <br><br>
+    <h2>We Challenge You to Read, Reflect, and Share! </h2>
+    <h3 style="text-align:left">Paper Trail challenges you to read a book that
+      you always wanted to read, reflect along when reading the book,
+      then share the book with one of your connections. </h3>
 
-    <!--footer-->
-    <h4>©️2020 Paper Trail. All Rights Reserved.</h4>
-  </p>
+    <!-- Elena: Feel free to edit the text here. -->
+    <img
+      src="https://images.squarespace-cdn.com/content/v1/5a29de216957dab4049b897d/1587690248848-96BPEPZ76460ZCCP8723/ke17ZwdGBToddI8pDm48kIzN4wyeHCRGna8ObAkdGAYUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnKwsWVXmS1mWX-HywvgF8KWBPTOfKVsHhHENCxSfCSJg_8ZhyaIGnlcaXB-Tpx2PEw/process.png?format=2500w"
+      alt="process" , width="100%" , style="padding-bottom:50px">
 
-</body>
+    <br><br>
+    <h2>Explore Six Degrees of Connection Through a Book! </h2>
+    <h3 style="text-align:left">Challenge your friend to read and share the book to one of
+      their connections. Repeat the process until you get to the six degrees of
+      connection. Paper Trail will help you to track your book along the way!</h3>
 
-</html>
+    <!-- Elena: Feel free to edit the text here. -->
+    <img
+      src="https://images.squarespace-cdn.com/content/v1/5a29de216957dab4049b897d/1587690267659-FDP4I2VW3IN7EPZHA7XU/ke17ZwdGBToddI8pDm48kHW7X2IM7lHrjoL4OVS-xxgUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnMti0gYjOLPVMHIb0DVbrfLAYag9SjYctldINorPEPAjwtUNvS_TQqaOU-48xu92Vw/six.png?format=2500w"
+      alt"six degrees of connection", width="100%" , style="padding-bottom:50px" />
+
+    <br><br>
+    <h2>We build a webpage for each book that you share! </h2>
+    <h3 style="text-align:left">Paper Trail helps you to build a page for each
+      book that you share, so you can always track your book's status. On this page,
+      you can read through all book recievers' letter. Check out our sample page
+      to see what a book page looks like.</h3>
+    <!-- Elena: Feel free to edit the text here -->
+
+    </div>
+
+  <!-- Elena: This should only appear for visitors that are not signed in.  -->
+  <!-- add jinja if control to check if signed in-->
+    <div id="wrapper">
+      <a href="{{ url_for('login') }}" class="button" style=margin:10px>Signup/Login to Get Started!</a>
+    </div>
+
+</p>
+
+{% endblock %}
