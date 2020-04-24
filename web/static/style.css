@@ -68,7 +68,9 @@ h7{
   line-height: 25px;
 }
 
-div {
+
+/* components design */
+div, nav {
   color: #393e46;
   font-family: Futura, sans-serif
 }
