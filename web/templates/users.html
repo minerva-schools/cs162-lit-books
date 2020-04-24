@@ -63,7 +63,7 @@
   </a>
   {% endfor %}
 
-<!--
+
 <a>
   <div class="card-col">
     <div class="card" style="background-color:#eeeeee; border-style: dashed;
@@ -75,7 +75,7 @@
   </div>
 </a>
 </div>
--->
+
 
 <!-- overlay add book -->
 <!-- Add Book -->
@@ -173,36 +173,60 @@
 </div>
 </div>
 
+<!-- overlay add new receive -->
+<!-- Receive a book from others -->
+<div id="overlay_add_new_receive">
+  <div class="overlay"></div>
+  <div class="modal8">
+    <div style="padding:10px; margin-top:20px; margin-bottom:10px">
 
+      <!--Book ID bar-->
+      <h1>Paper Trail</h1>
+      <form class="bookbar" action="/action_page.php" style="margin:auto; max-width:400px;">
+        <input type="text" placeholder="Your Book ID..." name="search2" style="background-color:#eeeeee">
+        <button type="submit"><i class="fa fa-paper-plane" onclick="off_new_receive"></i></button>
+      </form>
+      <h3><a href="about.html">Don't have a Book ID?</a></h3>
+
+    </div>
+  </div>
+</div>
 
 <script>
-function on_add_book() {
-  document.getElementById("overlay_add_book").style.display = "block";
-}
+  function on_add_book() {
+    document.getElementById("overlay_add_book").style.display = "block";
+  }
 
-function off_add_book() {
-  document.getElementById("overlay_add_book").style.display = "none";
-}
+  function off_add_book() {
+    document.getElementById("overlay_add_book").style.display = "none";
+  }
 
-function on_letter() {
-  document.getElementById("overlay_letter").style.display = "block";
-  document.getElementById("overlay_add_book").style.display = "none";
-}
+  function on_letter() {
+    document.getElementById("overlay_letter").style.display = "block";
+    document.getElementById("overlay_add_book").style.display = "none";
+  }
 
-function off_letter() {
-  document.getElementById("overlay_letter").style.display = "none";
+  function off_letter() {
+    document.getElementById("overlay_letter").style.display = "none";
 
-}
+  }
 
-function on_done() {
-  document.getElementById("overlay_add_book_done").style.display = "block";
-  document.getElementById("overlay_letter").style.display = "none";
-}
+  function on_done() {
+    document.getElementById("overlay_add_book_done").style.display = "block";
+    document.getElementById("overlay_letter").style.display = "none";
+  }
 
-function off_done() {
-  document.getElementById("overlay_add_book_done").style.display = "none";
-}
+  function off_done() {
+    document.getElementById("overlay_add_book_done").style.display = "none";
+  }
 
+  function on_new_receive() {
+    document.getElementById("overlay_add_new_receive").style.display = "block";
+  }
+
+  function off_new_receive() {
+    document.getElementById("overlay_add_new_receive").style.display = "none";
+  }
 
 </script>
 {% endblock %}
