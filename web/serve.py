@@ -183,13 +183,9 @@ def add_book():
 
 #add existed book
 @app.route('/add_existed_book/<bookid>', methods=['POST',"GET"])
+@login_required
 def add_existed_book(bookid):
     username = session.get('username')
-
-    if username == None:
-        flash ('Please log in to use')
-        return redirect(url_for('login'))
-
     user = db.session.query(User).filter(User.username == username).first()
     date = datetime.utcnow()
     month = datetime.utcnow().month
@@ -201,13 +197,9 @@ def add_existed_book(bookid):
 
 #add a new letter
 @app.route('/add_letter/<bookid>', methods=['POST'])
+@login_required
 def add_letter(bookid):
     username = session.get('username')
-
-    if username == None:
-        flash ('Please log in to use')
-        return redirect(url_for('login'))
-
     user = db.session.query(User).filter(User.username == username).first()
     message = request.form['msg']
     date = datetime.utcnow()
@@ -219,6 +211,7 @@ def add_letter(bookid):
 
 #show letter form
 @app.route('/letter/<bookid>')
+@login_required
 def letter(bookid): 
     return render_template('letter.html', bookid=bookid)
 
@@ -261,6 +254,7 @@ def user_byusername(username):
 
 # User profile by id
 @app.route('/user/id/<int:userid>')
+@login_required
 def user_byid(userid):
     return render_template('users.html')
 
