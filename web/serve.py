@@ -170,7 +170,7 @@ def book(bookid):
                                 ).filter(Letter.book_id==bookid
                                 ).order_by(desc(Letter.date)
                                 ).all()
-    return render_template('book_page.html', book = book, book_owner=book_owner,letters=letters)
+    return render_template('book_page.html', book = book, book_owner=book_owner,letters=letters, bookid=bookid)
 
 # User profile by username
 @app.route('/user/<username>')
