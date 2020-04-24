@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block title %} Sample {% endblock %}
+
+{% block content %}
+
+
+<!-- Letter -->
+<!-- This appears when the user clicks "Confirm and begin" to a write letter. -->
+  <div class="overlay" style="background-color: rgba(0,0,0,0.5)"></div>
+  <div class="modal2">
+    <div style="padding:10px; margin-top:20px; ">
+
+      <h1 style="margin:0">Your Letter 📃</h1>
+
+      <br><br>
+      Share you thoughts with past/future readers!
+      What does the book inspire you to think about?
+      <form class="form-container" method="POST">
+        <textarea placeholder="Type message.." name="msg" required></textarea>
+        <div id="wrapper">
+          <a href="{{url_for('add_letter', bookid=bookid)}}" class="button" style="margin:8px; width: 300px">
+            Done and Send 😄</a>
+        </div>
+      </form>
+
+    </div>
+    <div>
+      <div id="wrapper">
+        <button class="button" style="margin:8px; width:300px">
+          Cancel 😔</button>
+        <!-- Elena: When the user click this button, the "I've finished
+        reading the book" button should NOT disappear. -->
+      </div>
+    </div>
+  </div>
+
+
+  {% endblock %}
