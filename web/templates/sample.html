@@ -19,7 +19,7 @@ that a user can write about-->
   <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
     <a href="{{ url_for('index')}}" class="active">Paper Trail</a>
-    <a href="users.html">My Page</a>
+    <a href="{{ url_for('user_byusername')}}">My Page</a>
     <a href="{{ url_for('about')}}">About</a>
     <a href="{{ url_for('sample')}}l">Sample</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
