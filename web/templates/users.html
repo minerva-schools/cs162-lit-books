@@ -10,19 +10,18 @@
 
 <body>
 
-  <!--navigation bar-->
+  <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
-    <a href="index_signed_in.html" class="active">Paper Trail</a>
-    <a href="{{ url_for('booksearch')}}">Sign Out</a>
+    <a href="{{ url_for('booksearch')}}" class="active">Paper Trail</a>
+    <a href="{{ url_for('logout')}}">Sign Out</a>
     <a href="{{ url_for('about')}}">About</a>
-    <a href="sample.html">Sample</a>
-
+    <a href="{{ url_for('sample')}}">Sample</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars" aria-hidden="true"></i>
     </a>
   </div>
 
-  <!--javascript-->
+  <!-- javascript for navigation bar -->
   <script>
     function myFunction() {
       var x = document.getElementById("myTopnav");
@@ -34,13 +33,17 @@
     }
   </script>
 
-
-  <!--main design-->
+  <!-- main page design -->
 
   <br> <br>
-  <h1>{{user_name}}</h1>
+  <h1>{{user.name}}</h1>
   <h3>3 Shared · 9 Recieved </h3>
+  <!-- Make sure that this can be updated on time. -->
 
+  <!--Shared by me-->
+  <!-- These are books that the user own. -->
+
+  <!-- Latest Share (1) -->
   <!--Shared by me-->
   <div class="card-row">
     <br>
@@ -67,7 +70,8 @@
     </a>
   </div>
 
-  <!--Shared to me-->
+
+  <!--Shared by me-->
   <div class="card-row">
     <br><br>
     <h2 style="padding-left:10px; color:#222831; margin:0"> Shared with me </h2>
@@ -226,5 +230,7 @@
   <!--footer-->
   <br><h4>©️2020 Paper Trail. All Rights Reserved.</h4>
 
+
 </body>
+
 </html>

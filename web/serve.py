@@ -31,13 +31,18 @@ import hashlib
 # Page to look up book by ID
 @app.route('/booksearch')
 def booksearch():
-    return render_template('index_signed_in.html')
+    return render_template('index.html')
 
 # Index page
 @app.route('/')
 def index():
     # Redirect to booksearch if logged-in
     return redirect(url_for('booksearch'))
+
+# sample page (book page with sample letters)
+@app.route('/sample')
+def sample():
+    return render_template('sample.html')
 
 # About page
 @app.route('/about')
@@ -61,7 +66,7 @@ def login():
 
         user = db.session.query(User).filter(User.username == username).first()
         if user:
-            salt = user.salt 
+            salt = user.salt
             if user.password == hash_password(str(password+salt)):
                 session['username'] = user.username
                 flash('Login sucessfully')
@@ -84,7 +89,7 @@ def create_salt():
     return "".join(chars)
 
 #hash password
-def hash_password(users_password): 
+def hash_password(users_password):
     # input: user password
     # then encode to convert into bytes
     return hashlib.sha256(users_password.encode('utf-8')).hexdigest()
@@ -153,20 +158,20 @@ def add_book():
     db.session.add(new_book)
     db.session.commit()
     return redirect(url_for('book', bookid = book_id))
-    # else:
-    #     return render_template("login.html")
 
 # Book listing
 @app.route('/book/id/<bookid>')
 def book(bookid):
     return render_template('book_page.html')
 
+
 # User profile by username
 @app.route('/user/<username>')
 def user_byusername(username):
+    if username == None:
+        username = session.get('username')
     user = db.session.query(User).filter(User.username == username).first()
-    name = user.name
-    return render_template('users.html', user_name=name)
+    return render_template('users.html', user=user)
 
 # User profile by id
 @app.route('/user/id/<int:userid>')
