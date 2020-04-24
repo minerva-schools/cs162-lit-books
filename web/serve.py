@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 from datetime import datetime
 import os
 import random
@@ -156,7 +157,7 @@ def add_book():
 
     new_book = Book(title=title, author_name=author, id=book_id, owner=user.id)
     db.session.add(new_book)
-    db.session.add(Current_Owner(book_id=book_id,current_owner_id=user.id))
+    db.session.add(Current_Owner(book_id=book_id,current_owner_id=user.id,orig_owner=1))
     db.session.commit()
     return redirect(url_for('book', bookid = book_id))
 
@@ -165,14 +166,29 @@ def add_book():
 def book(bookid):
     return render_template('book_page.html')
 
-
 # User profile by username
 @app.route('/user/<username>')
 def user_byusername(username):
     if username == None:
         username = session.get('username')
     user = db.session.query(User).filter(User.username == username).first()
-    return render_template('users.html', user=user)
+    user_id = user.id
+    nowned = db.session.query(Book
+                        ).filter(Book.owner == user.id
+                        ).count()
+    nreceived = db.session.query(Current_Owner
+                        ).filter(Current_Owner.current_owner_id == user.id
+                        ).filter(Current_Owner.orig_owner == 0
+                        ).count()
+    owned_books = db.session.query(Book
+                        ).filter(Book.owner == user.id
+                        ).all()
+    received_books = db.session.query(Book.id, Book.title, Book.author_name
+                        ).join(Current_Owner.books
+                        ).filter(Current_Owner.current_owner_id == user.id
+                        ).filter(Current_Owner.orig_owner == 0
+                        ).all()
+    return render_template('users.html', user=user, nowned=nowned, nreceived=nreceived, owned_books=owned_books, received_books=received_books)
 
 # User profile by id
 @app.route('/user/id/<int:userid>')
