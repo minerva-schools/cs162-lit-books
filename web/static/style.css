@@ -70,7 +70,7 @@ h7{
 
 
 /* components design */
-div {
+div, nav {
   color: #393e46;
   font-family: Futura, sans-serif
 }
