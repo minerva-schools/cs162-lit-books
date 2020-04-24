@@ -34,7 +34,7 @@
   </a>
   {% endfor %}
 
-  <a onclick="on_add_book_1()" style="cursor:pointer">
+  <a onclick="on_add_book()" style="cursor:pointer">
     <div class="card-col" >
       <div class="card" style="background-color:#eeeeee; border-style: dashed;
       border-color: #00adb5;">
@@ -79,7 +79,7 @@
 
 <!-- overlay add book -->
 <!-- Add Book -->
-  <div id="overlay_add_book_1">
+  <div id="overlay_add_book">
   <div class="overlay"></div>
   <div class="modal3">
     <div style="padding:10px; margin-top:20px; margin-bottom:10px">
@@ -104,7 +104,7 @@
     </form>
 
     <div id="wrapper">
-      <button class="button" onclick="off_add_book_1()" style=margin:10px>Cancel 😔</button>
+      <button class="button" onclick="off_add_book()" style=margin:10px>Cancel 😔</button>
     </div>
 
 
@@ -176,17 +176,17 @@
 
 
 <script>
-function on_add_book_1() {
-  document.getElementById("overlay_add_book_1").style.display = "block";
+function on_add_book() {
+  document.getElementById("overlay_add_book").style.display = "block";
 }
 
-function off_add_book_1() {
-  document.getElementById("overlay_add_book_1").style.display = "none";
+function off_add_book() {
+  document.getElementById("overlay_add_book").style.display = "none";
 }
 
 function on_letter() {
   document.getElementById("overlay_letter").style.display = "block";
-  document.getElementById("overlay_add_book_1").style.display = "none";
+  document.getElementById("overlay_add_book").style.display = "none";
 }
 
 function off_letter() {
