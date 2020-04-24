@@ -64,9 +64,9 @@
 
   <!-- Book info -->
   <br><br>
-  <h1>Milk and Honey</h1>
-  <h3>Author: Rupi Kaur</h3>
-  <h3>Shared by: Helena Mance</h3>
+  <h1>{{book.title}}</h1>
+  <h3>Author: {{book.author_name}}</h3>
+  <h3>Shared by: {{book_owner.name}}</h3>
 
   <!-- two buttons -->
 
@@ -87,6 +87,16 @@
   <!-- book comment/letter section -->
   <div class="comment_section">
     <br>
+
+    {% for item in letters %} <!-- item[0] is a Letter query, item[1] is the name of the user poster-->
+    <div class="comment">
+      <h5> {{item[1]}} </h5> | <h6> {{item[0].date}} </h6>
+      <i class="fas fa-ellipsis-h" style="float:right; cursor:pointer" onclick="on_report()"></i>
+      <hr>
+      {{ item[0].message }}
+    </div>
+    <br>
+    {% endfor %}
 
     <!-- letter 1 -->
     <div class="comment">

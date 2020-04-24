@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import func
+from sqlalchemy import func, desc
 from datetime import datetime
 import os
 import random
@@ -185,7 +185,13 @@ def add_book():
 @app.route('/book/id/<bookid>')
 @login_required
 def book(bookid):
-    return render_template('book_page.html')
+    book = db.session.query(Book).filter(Book.id==bookid).first()
+    book_owner = db.session.query(User).filter(User.id==Book.owner).first()
+    letters = db.session.query(Letter,User.name).join(Letter.users
+                                ).filter(Letter.book_id==bookid
+                                ).order_by(desc(Letter.date)
+                                ).all()
+    return render_template('book_page.html', book = book, book_owner=book_owner,letters=letters, bookid=bookid)
 
 # User profile by username
 @app.route('/user/<username>')
