@@ -14,10 +14,10 @@
 
   <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
-    <a href="index.html" class="active">Paper Trail</a>
-    <a href="login.html">Login</a>
-    <a href="about.html">About</a>
-    <a href="sample.html">Sample</a>
+    <a href="{{ url_for('index')}}">Paper Trail</a>
+    <a href="{{ url_for('login')}}">Login</a>
+    <a href="{{ url_for('about')}}l">About</a>
+    <a href="{{ url_for('sample')}}">Sample</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars" aria-hidden="true"></i>
     </a>
@@ -53,7 +53,7 @@
       <img src="{{file1}}" alt="process" , width="100%" , style="padding-bottom:50px">
 =======
       <!-- Elena: Feel free to edit the text here. -->
-      <img src="images/process.png" alt="process" , width="100%" , style="padding-bottom:50px">
+      <img src="{{file2}}" alt="process" , width="100%" , style="padding-bottom:50px">
 >>>>>>> 70edaf5e7e81a12a49ec6be88433273a9a5b2b3f
 
       <br><br>

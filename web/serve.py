@@ -41,6 +41,11 @@ def index():
     file2 = os.path.join(app.config['UPLOAD_FOLDER'], 'six.png')
     return redirect(url_for('index.html'), file1=file1, file2=file2)
 
+# sample page (book page with sample letters)
+@app.route('/sample')
+def sample():
+    return render_template('sample.html')
+
 # About page
 @app.route('/about')
 def about():
@@ -63,7 +68,7 @@ def login():
 
         user = db.session.query(User).filter(User.username == username).first()
         if user:
-            salt = user.salt 
+            salt = user.salt
             if user.password == hash_password(str(password+salt)):
                 session['username'] = user.username
                 flash('Login sucessfully')
@@ -86,7 +91,7 @@ def create_salt():
     return "".join(chars)
 
 #hash password
-def hash_password(users_password): 
+def hash_password(users_password):
     # input: user password
     # then encode to convert into bytes
     return hashlib.sha256(users_password.encode('utf-8')).hexdigest()
