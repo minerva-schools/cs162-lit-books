@@ -52,10 +52,9 @@ class BookTransactions(db.Model):
     date = Column(Date)
     month = Column(Integer)
     book_id = Column(String, ForeignKey('books.id'))
-    from_user_id = Column(Integer, ForeignKey('users.id'))
     to_user_id = Column(Integer, ForeignKey('users.id'), index=True) #indexed for quick lookup of all books an owner holds
     books = relationship('Book')
-    users = relationship('Users')
+    users = relationship('User')
 
 # Initialize database
 db.create_all()
