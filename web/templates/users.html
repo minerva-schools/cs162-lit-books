@@ -10,19 +10,18 @@
 
 <body>
 
-  <!--navigation bar-->
+  <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
     <a href="index_signed_in.html" class="active">Paper Trail</a>
     <a href="{{ url_for('booksearch')}}">Sign Out</a>
     <a href="{{ url_for('about')}}">About</a>
     <a href="sample.html">Sample</a>
-
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars" aria-hidden="true"></i>
     </a>
   </div>
 
-  <!--javascript-->
+  <!-- javascript for navigation bar -->
   <script>
     function myFunction() {
       var x = document.getElementById("myTopnav");
@@ -34,17 +33,54 @@
     }
   </script>
 
-
-  <!--main design-->
+  <!-- main page design -->
 
   <br> <br>
-  <h1>{{user_name}}</h1>
+  <h1>Elena Cai</h1>
   <h3>3 Shared · 9 Recieved </h3>
+  <!-- Make sure that this can be updated on time. -->
 
   <!--Shared by me-->
+  <!-- These are books that the user own. -->
+
+  <!-- Latest Share (1) -->
   <div class="card-row">
     <br>
     <h2 style="padding-left:10px; color:#222831; margin:0"> Shared by me </h2>
+    <a href="book_page.html">
+      <div class="card-col">
+        <div class="card">
+          <!-- Book Name -->
+          <h3 style="color:white"> Milk and Honey </h3>
+          <!-- Book Author -->
+          <h6> Rupi Kaur </h6>
+        </div>
+      </div>
+    </a>
+
+    <!-- Add a Book Button -->
+    <!-- This is where a user can share a book that they own. -->
+    <a onclick="on_add_book()" style="cursor:pointer">
+      <div class="card-col">
+        <div class="card" style="background-color:#eeeeee; border-style: dashed;
+        border-color: #00adb5;">
+          <br>
+          <h3 style="color:#00adb5">Share a <br>Book</h3>
+          <i class="fas fa-plus-circle fa-2x" style="color:#00adb5;
+          "></i>
+        </div>
+      </div>
+    </a>
+  </div>
+
+
+  <!--Shared by me-->
+  <!-- These are books that others shared to the user. -->
+
+  <!-- Latest Book (1) -->
+  <div class="card-row">
+    <br><br>
+    <h2 style="padding-left:10px; color:#222831; margin:0"> Shared with me </h2>
     <a href="book_page.html">
       <div class="card-col">
         <div class="card">
@@ -54,48 +90,25 @@
       </div>
     </a>
 
-    <a onclick="on_add_book_1()" style="cursor:pointer">
-      <div class="card-col" >
+
+    <!-- Add a new receive -->
+    <!-- A user can add a new receive here -->
+    <a onclick=on_new_receive() style="cursor:pointer">
+      <div class="card-col">
         <div class="card" style="background-color:#eeeeee; border-style: dashed;
         border-color: #00adb5;">
-        <br>
-          <h3 style="color:#00adb5">Share a <br>Book</h3>
-          <i class="fas fa-plus-circle fa-2x" style="color:#00adb5;
-          "></i>
+          <br>
+          <h3 style="color:#00adb5">Add a new <br>Receive</h3>
+          <i class="fas fa-plus-circle fa-2x" style="color:#00adb5;"></i>
         </div>
       </div>
     </a>
   </div>
 
-  <!--Shared to me-->
-  <div class="card-row">
-    <br><br>
-    <h2 style="padding-left:10px; color:#222831; margin:0"> Shared with me </h2>
-    <a>
-      <div class="card-col">
-        <div class="card">
-          <h3 style="color:white">Milk and Honey</h3>
-          <h6>Rupi Kaur</h6>
-        </div>
-      </div>
-    </a>
 
-  <a>
-    <div class="card-col">
-      <div class="card" style="background-color:#eeeeee; border-style: dashed;
-      border-color: #00adb5;">
-      <br>
-        <h3 style="color:#00adb5">Add a new <br>Recieve</h3>
-        <i class="fas fa-plus-circle fa-2x" style="color:#00adb5;"></i>
-      </div>
-    </div>
-  </a>
-</div>
-
-
-<!-- overlay add book -->
-<!-- Add Book -->
-    <div id="overlay_add_book_1">
+  <!-- overlay add book -->
+  <!-- Add Book -->
+  <div id="overlay_add_book_1">
     <div class="overlay"></div>
     <div class="modal3">
       <div style="padding:10px; margin-top:20px; margin-bottom:10px">
@@ -123,108 +136,137 @@
         <button class="button" onclick="off_add_book_1()" style=margin:10px>Cancel 😔</button>
       </div>
 
-      
-
+      </div>
     </div>
   </div>
-</div>
 
 
-<!-- Letter Overlay -->
-<div id="overlay_letter">
+  <!-- Letter Overlay -->
+  <div id="overlay_letter">
     <div class="overlay"></div>
     <div class="modal2">
       <div style="padding:10px; margin-top:20px; ">
 
-      <h1 style="margin:0">Your Letter 📃</h1>
+        <h1 style="margin:0">Your Letter 📃</h1>
 
-      <br><br>
-      Share you thoughts with past/future readers!
-      What does the book inspire you to think about?
+        <br><br>
+        Share you thoughts with past/future readers!
+        What does the book inspire you to think about?
+        <form class="form-container">
+          <textarea placeholder="Type message.." name="msg" required></textarea>
+        </form>
 
-      <!-- Form -->
-      <form class="form-container">
-        <textarea placeholder="Type message.." name="msg" required></textarea>
+      </div>
+      <div>
         <div id="wrapper">
-          <button class="button" onclick="on_done()" style="margin:8px; width:300px">Done 😔</button>
+          <button class="button" onclick="on_done()" style="margin:8px; width:300px">
+            Done 😄</button>
+          <!-- Elena: Once a user clicks done, the website should generate a
+        unique bookID for the book and create a webpage based on the bookID and
+        put the book into the user "My Page" and also display the letter in the
+        book webpage -->
         </div>
-      </form>
-    </div>
 
-    <div>
-      <div id="wrapper">
-        <button class="button" onclick="off_letter()" style="margin:8px; width:300px">Cancel 😔</button>
+        <div id="wrapper">
+          <button class="button" onclick="off_letter()" style="margin:8px; width:300px">
+            Cancel 😔</button>
+        </div>
       </div>
     </div>
+  </div>
 
 
-    </div>
-    </div>
-
-
-<!-- overlay add book -->
-<!-- Add Book -->
-    <div id="overlay_add_book_done">
+  <!-- overlay add book_done -->
+  <!-- When the user finish writing the letter and click done, display: -->
+  <div id="overlay_add_book_done">
     <div class="overlay"></div>
     <div class="modal4">
       <div style="padding:10px; margin-top:20px; margin-bottom:10px">
 
-      <h1 style="margin:0">Done🎉</h1>
+        <h1 style="margin:0">Done🎉</h1>
 
-      <br><br>
-      All set! Now, share your book to one of your connection.
-      Write down the webpage to access this challenge at
-      papertrail.com/sa12138
+        <br><br>
+        All set! Now, share your book to one of your connection.
+        Write down the webpage to access this challenge at
+        papertrail.com/sa12138
+        <!-- Elena: This unique code should be changed each time! -->
 
-      <br><br>
+        <br><br>
 
-      The Book ID to this book is
-      <h1 style="font-size:30px">SA12138</h1>
+        The Book ID to this book is
+        <h1 style="font-size:30px">SA12138</h1>
+        <!-- Elena: This unique code should be changed each time! -->
 
-      <div id="wrapper">
-        <button class="button" onclick="off_done()" style=margin:10px>OK 😄</button>
+        <div id="wrapper">
+          <button class="button" onclick="off_done()" style=margin:10px>OK 😄</button>
+        </div>
+
       </div>
-
     </div>
   </div>
-</div>
 
+  <!-- overlay add new receive -->
+  <!-- Receive a book from others -->
+  <div id="overlay_add_new_receive">
+    <div class="overlay"></div>
+    <div class="modal8">
+      <div style="padding:10px; margin-top:20px; margin-bottom:10px">
 
+        <!--Book ID bar-->
+        <h1>Paper Trail</h1>
+        <form class="bookbar" action="/action_page.php" style="margin:auto; max-width:400px;">
+          <input type="text" placeholder="Your Book ID..." name="search2" style="background-color:#eeeeee">
+          <button type="submit"><i class="fa fa-paper-plane" onclick="off_new_receive"></i></button>
+        </form>
+        <h3><a href="about.html">Don't have a Book ID?</a></h3>
+
+      </div>
+    </div>
+  </div>
 
   <script>
-  function on_add_book_1() {
-    document.getElementById("overlay_add_book_1").style.display = "block";
-  }
+    // These are functions that open/close the overlay notification bars.
+    function on_add_book() {
+      document.getElementById("overlay_add_book").style.display = "block";
+    }
 
-  function off_add_book_1() {
-    document.getElementById("overlay_add_book_1").style.display = "none";
-  }
+    function off_add_book() {
+      document.getElementById("overlay_add_book").style.display = "none";
+    }
 
-  function on_letter() {
-    document.getElementById("overlay_letter").style.display = "block";
-    document.getElementById("overlay_add_book_1").style.display = "none";
-  }
+    function on_letter() {
+      document.getElementById("overlay_letter").style.display = "block";
+      document.getElementById("overlay_add_book").style.display = "none";
+    }
 
-  function off_letter() {
-    document.getElementById("overlay_letter").style.display = "none";
+    function off_letter() {
+      document.getElementById("overlay_letter").style.display = "none";
 
-  }
+    }
 
-  function on_done() {
-    document.getElementById("overlay_add_book_done").style.display = "block";
-    document.getElementById("overlay_letter").style.display = "none";
-  }
+    function on_done() {
+      document.getElementById("overlay_add_book_done").style.display = "block";
+      document.getElementById("overlay_letter").style.display = "none";
+    }
 
-  function off_done() {
-    document.getElementById("overlay_add_book_done").style.display = "none";
-  }
+    function off_done() {
+      document.getElementById("overlay_add_book_done").style.display = "none";
+    }
 
+    function on_new_receive() {
+      document.getElementById("overlay_add_new_receive").style.display = "block";
+    }
 
+    function off_new_receive() {
+      document.getElementById("overlay_add_new_receive").style.display = "none";
+    }
   </script>
 
 
   <!--footer-->
-  <br><h4>©️2020 Paper Trail. All Rights Reserved.</h4>
+  <br>
+  <h4>©️2020 Paper Trail. All Rights Reserved.</h4>
 
 </body>
+
 </html>
