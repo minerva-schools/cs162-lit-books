@@ -64,7 +64,7 @@
   {% endfor %}
 
 
-<a>
+<a onclick="on_new_receive()" style="cursor:pointer">
   <div class="card-col">
     <div class="card" style="background-color:#eeeeee; border-style: dashed;
     border-color: #00adb5;">
@@ -175,9 +175,9 @@
 
 <!-- overlay add new receive -->
 <!-- Receive a book from others -->
-<div id="overlay_add_new_receive">
+<div id="overlay_add_new_receive" style="display:none">
   <div class="overlay"></div>
-  <div class="modal8">
+  <div class="modal4" style="height:340px; margin-top: -170px">
     <div style="padding:10px; margin-top:20px; margin-bottom:10px">
 
       <!--Book ID bar-->
