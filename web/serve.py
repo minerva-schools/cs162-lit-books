@@ -183,7 +183,12 @@ def user_byusername(username):
     owned_books = db.session.query(Book
                         ).filter(Book.owner == user.id
                         ).all()
-    return render_template('users.html', user=user, nowned=nowned, nreceived=nreceived, owned_books=owned_books)
+    received_books = db.session.query(Book.id, Book.title, Book.author_name
+                        ).join(Current_Owner.books
+                        ).filter(Current_Owner.current_owner_id == user.id
+                        ).filter(Current_Owner.orig_owner == 0
+                        ).all()
+    return render_template('users.html', user=user, nowned=nowned, nreceived=nreceived, owned_books=owned_books, received_books=received_books)
 
 # User profile by id
 @app.route('/user/id/<int:userid>')
