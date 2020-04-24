@@ -20,7 +20,7 @@
   the overlay effect still works, and the user should only need to type in
   the website address once.-->
 
-  <div id="overlay_login">
+  <!-- <div id="overlay_login">
     <div class="overlay"></div>
     <div class="modal6">
       <div class="login-form">
@@ -37,11 +37,11 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- signup overlay-->
   <!-- The user can also diractly signup here.  -->
-  <div id="overlay_signup">
+  <!-- <div id="overlay_signup">
     <div class="overlay"></div>
     <div class="modal7">
       <div class="login-form">
@@ -59,7 +59,7 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
   <!-- Book info -->
@@ -159,7 +159,7 @@
 
     <!-- New Receiver Overlay -->
     <!-- This appears when the user clicks the new receiver button -->
-    <div id="overlay_new_receiver">
+    <div id="overlay_new_receiver" style="display:none">
       <div class="overlay"></div>
       <div class="modal">
         <div style="padding:10px; margin-top:20px; margin-bottom:10px">
@@ -203,7 +203,7 @@
 
     <!-- I finished reading Overlay -->
     <!-- This overlay appears when the user clicks "I finished reading the book" button -->
-    <div id="overlay_finish">
+    <div id="overlay_finish" style="display:none">
       <div class="overlay"></div>
       <div class="modal">
         <div style="padding:10px; margin-top:20px; margin-bottom:10px">
@@ -240,7 +240,7 @@
 
     <!-- Letter Overlay -->
     <!-- This appears when the user clicks "Confirm and begin" to a write letter. -->
-    <div id="overlay_letter">
+    <!-- <div id="overlay_letter">
       <div class="overlay"></div>
       <div class="modal2">
         <div style="padding:10px; margin-top:20px; ">
@@ -258,27 +258,27 @@
         <div>
           <div id="wrapper">
             <a href="book_page.html" class="button" onclick="off_letter()" style="margin:8px; width: 300px">
-              Done and Send 😄</a>
+              Done and Send 😄</a> -->
             <!-- Elena: When the user clicks this button, the letter should
             upload to the database, and the button of "I've finished reading
             the book!" should disapper. The letter should display in the
             book page. -->
-          </div>
+          <!-- </div>
           <div id="wrapper">
             <button class="button" onclick="off_letter()" style="margin:8px; width:300px">
-              Cancel 😔</button>
+              Cancel 😔</button> -->
             <!-- Elena: When the user click this button, the "I've finished
             reading the book" button should NOT disappear. -->
-          </div>
+          <!-- </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
     <!-- Report, Cancel -->
     <!-- Elena: This appears when the user clicks the report button (three dots),
     this should appear. Make sure that it links to an UNIQUE letter -->
-    <div id="overlay_report">
+    <div id="overlay_report" style="display:none">
       <div class="overlay"></div>
       <div class="modal5">
         <a onclick="off_report()" style="text-decoration:none">
@@ -297,7 +297,6 @@
 
 
     <script>
-      // These are functions that display or closes the overlay notification windows.
       function on() {
         document.getElementById("overlay_new_receiver").style.display = "block";
       }
