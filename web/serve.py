@@ -162,7 +162,7 @@ def add_book():
     return redirect(url_for('book', bookid = book_id))
 
 #add a new letter
-@app.route('/add_letter', methods=['POST','GET'])
+@app.route('/add_letter', methods=['POST'])
 def add_letter(bookid):
     username = session.get('username')
 
