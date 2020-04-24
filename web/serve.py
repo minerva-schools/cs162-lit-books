@@ -1,12 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import func
+from sqlalchemy import func, desc
 from datetime import datetime
 import os
 import random
+import json, itsdangerous
+from functools import wraps
 
 from web import db,app
-from .create_db import User, Book, Letter, Current_Owner
+from .create_db import User, Book, Letter, Current_Owner, BookTransactions
 import hashlib
 
 
@@ -28,6 +30,26 @@ import hashlib
 
 # db.create_all() #create all tables
 #####################################################
+
+def login_required(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        username = session.get('username')
+        try:
+            _session = request.cookies["session"].partition('.')[0]
+        except KeyError:
+            session_username = None
+        else:
+            session_username = json.loads(itsdangerous.base64_decode(_session).decode('utf-8')).get('username')
+
+        print(username, session_username)
+        if username is None or session_username is None or username != session_username: #is checks for identity, since None is a singleton
+            flash ('Please log in to use')
+            return redirect(url_for('login'))
+
+        return func(*args, **kwargs)
+    return wrapper
+
 
 # Page to look up book by ID
 @app.route('/booksearch')
@@ -54,6 +76,7 @@ def about():
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     session.pop('username', None)
+    session.clear()
     flash('You were logged out')
     return redirect(url_for('login'))
 
@@ -142,14 +165,11 @@ def valid_book_id():
             return book_id
 ###############
 # Add a new book
+
 @app.route('/add', methods=["POST","GET"])
+@login_required
 def add_book():
     username = session.get('username')
-
-    if username == None:
-        flash ('Please log in to use')
-        return redirect(url_for('login'))
-
     user = db.session.query(User).filter(User.username == username).first()
     title = request.form['title']
     author = request.form['author']
@@ -161,16 +181,58 @@ def add_book():
     db.session.commit()
     return redirect(url_for('book', bookid = book_id))
 
+#add existed book
+@app.route('/add_existed_book/<bookid>', methods=['POST',"GET"])
+@login_required
+def add_existed_book(bookid):
+    username = session.get('username')
+    user = db.session.query(User).filter(User.username == username).first()
+    date = datetime.utcnow()
+    month = datetime.utcnow().month
+
+    db.session.add(Current_Owner(book_id=bookid,current_owner_id=user.id,orig_owner=0))
+    db.session.add(BookTransactions(date=date, month=month, book_id=bookid,to_user_id=user.id))
+    db.session.commit()
+    return redirect(url_for('book', bookid=bookid))
+
+#add a new letter
+@app.route('/add_letter/<bookid>', methods=['POST'])
+@login_required
+def add_letter(bookid):
+    username = session.get('username')
+    user = db.session.query(User).filter(User.username == username).first()
+    message = request.form['msg']
+    date = datetime.utcnow()
+
+    new_letter = Letter(user_id = user.id, book_id=bookid, date=date, message=message)
+    db.session.add(new_letter)
+    db.session.commit()
+    return redirect(url_for('book', bookid=bookid))
+
+#show letter form
+@app.route('/letter/<bookid>')
+@login_required
+def letter(bookid): 
+    return render_template('letter.html', bookid=bookid)
+
 # Book listing
 @app.route('/book/id/<bookid>')
+@login_required
 def book(bookid):
-    return render_template('book_page.html')
+    book = db.session.query(Book).filter(Book.id==bookid).first()
+    book_owner = db.session.query(User).filter(User.id==Book.owner).first()
+    letters = db.session.query(Letter,User.name).join(Letter.users
+                                ).filter(Letter.book_id==bookid
+                                ).order_by(desc(Letter.date)
+                                ).all()
+    return render_template('book_page.html', book = book, book_owner=book_owner,letters=letters, bookid=bookid)
 
 # User profile by username
 @app.route('/user/<username>')
+@login_required
 def user_byusername(username):
     if username == None:
-        username = session.get('username')
+        return render_template('login.html')
     user = db.session.query(User).filter(User.username == username).first()
     user_id = user.id
     nowned = db.session.query(Book
@@ -192,6 +254,7 @@ def user_byusername(username):
 
 # User profile by id
 @app.route('/user/id/<int:userid>')
+@login_required
 def user_byid(userid):
     return render_template('users.html')
 
