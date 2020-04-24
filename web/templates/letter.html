@@ -18,22 +18,15 @@
       <h1 style="margin:0">Your Letter 📃</h1>
 
       <br><br>
-      Share you thoughts with past/future readers!
+      Share your thoughts with past/future readers!
       What does the book inspire you to think about?
-      <form class="form-container">
+      <form class="form-container" method="POST" action="{{url_for('add_letter', bookid=bookid)}}">
         <textarea placeholder="Type message.." name="msg" required></textarea>
+        <div id="wrapper">
+          <button type="submit"  class="button" style="margin:8px; width: 300px">Done and Send 😄</button> 
+        </div>
+        
       </form>
-
-    </div>
-    <div>
-      <div id="wrapper">
-        <a href="book_page.html" class="button" style="margin:8px; width: 300px">
-          Done and Send 😄</a>
-        <!-- Elena: When the user clicks this button, the letter should
-        upload to the database, and the button of "I've finished reading
-        the book!" should disapper. The letter should display in the
-        book page. -->
-      </div>
       <div id="wrapper">
         <button class="button" style="margin:8px; width:300px">
           Cancel 😔</button>

@@ -181,6 +181,29 @@ def add_book():
     db.session.commit()
     return redirect(url_for('book', bookid = book_id))
 
+#add a new letter
+@app.route('/add_letter/<bookid>', methods=['POST'])
+def add_letter(bookid):
+    username = session.get('username')
+
+    if username == None:
+        flash ('Please log in to use')
+        return redirect(url_for('login'))
+
+    user = db.session.query(User).filter(User.username == username).first()
+    message = request.form['msg']
+    date = datetime.utcnow()
+
+    new_letter = Letter(user_id = user.id, book_id=bookid, date=date, message=message)
+    db.session.add(new_letter)
+    db.session.commit()
+    return redirect(url_for('book', bookid=bookid))
+
+#show letter form
+@app.route('/letter/<bookid>')
+def letter(bookid): 
+    return render_template('letter.html', bookid=bookid)
+
 # Book listing
 @app.route('/book/id/<bookid>')
 @login_required
@@ -198,7 +221,7 @@ def book(bookid):
 @login_required
 def user_byusername(username):
     if username == None:
-        username = session.get('username')
+        return render_template('login.html')
     user = db.session.query(User).filter(User.username == username).first()
     user_id = user.id
     nowned = db.session.query(Book
