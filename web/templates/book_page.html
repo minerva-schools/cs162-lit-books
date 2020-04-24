@@ -73,13 +73,13 @@
   <!-- New Reader Button -->
   <!-- Elena: This button should disappear when the user add the book to "my page" -->
   <div id="wrapper">
-    <button class="button" onclick="on()" style=margin:10px>I'm a new book receiver 😀</button>
+    <button class="button" onclick="on()" href="" style=margin:10px>I'm a new book receiver 😀</button>
   </div>
 
   <!-- Finish Reading Button -->
   <!-- Elena: This button should disappear when the user add the letter -->
   <div id="wrapper">
-    <button class="button" onclick="on_finish()" href="{{url_for('letter', bookid=bookid)}}" style=margin:10px>I've finished reading the book! 😎</button>
+    <button class="button" onclick="on_finish()" style=margin:10px>I've finished reading the book! 😎</button>
   </div>
 
   <br><br>
@@ -224,9 +224,10 @@
         </div>
 
         <div id="wrapper">
-          <button class="button" onclick="on_letter()" style=margin:10px>
-            Confirm and begin 😄</button>
+          <a class="button" type="submit" href="{{url_for('letter', bookid=bookid)}}" style=margin:10px>
+            Confirm and begin 😄</a>
         </div>
+        <a href=""></a>
 
         <div id="wrapper">
           <button class="button" onclick="off_finish()" style=margin:10px>
