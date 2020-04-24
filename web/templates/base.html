@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Paper Trail - {% block title %}{% endblock %}</title>
+  {% block head %}
+  <script src="https://kit.fontawesome.com/670e5e8eb8.js" crossorigin="anonymous"></script>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  {% endblock %}
+</head>
+
+<body>
+  <header>
+    <!-- navigation bar -->
+    <nav class="topnav" id="myTopnav">
+      <a href="{{ url_for('index')}}" class="active">Paper Trails</a>
+      <!-- once login decorator is working
+      {% if g.user %}
+        <span>{{ g.user['username'] }}</span>
+        <a href="{{ url_for('logout') }}">Log Out</a>
+      {% else %}
+        <a href="{{ url_for('login')}}">Login</a>
+      {% endif %}
+      -->
+      <a href="{{ url_for('login')}}">Login</a>
+      <a href="{{ url_for('user_byusername',username = session['username']) }}">My page</a>
+      <a href="{{ url_for('about')}}">About</a>
+      <a href="{{ url_for('sample')}}">Sample</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </a>
+    </nav>
+
+    <!-- javascript for navigation bar -->
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <div id="footer">
+    <h4>©️2020 Paper Trail. All Rights Reserved.</h4>
+  </div>
+
+</body>
