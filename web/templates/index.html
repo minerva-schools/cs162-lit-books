@@ -48,11 +48,13 @@
 
     </div>
 
-  <div id="wrapper">
-    <a href="{{url_for('login')}}" class="button" style=margin:10px>Signup/Login to Get Started!</a>
-  </div>
   <!-- Elena: This should only appear for visitors that are not signed in.  -->
-
+  <!-- {% if g.user %} -->
+    <div id="wrapper">
+      <a href="{{url_for('login')}}" class="button" style=margin:10px>Signup/Login to Get Started!</a>
+    </div>
+  <!-- {% endif} -->
+  
   <br><br>
   </p>
 
