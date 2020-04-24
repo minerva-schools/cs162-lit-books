@@ -12,9 +12,9 @@ class BasicTests(unittest.TestCase):
     # executed prior to each test
     #creates a new test client and initializes a new databade
     def setUp(self):
-        self.db_fd, web.app.config['DATABASE'] = tempfile.mkstemp()
+        self.db_fd, app.config['DATABASE'] = tempfile.mkstemp()
         app.testing = True
-        self.app = web.app.test_client()
+        self.app = app.test_client()
         db.drop_all()
         db.create_all()
 
@@ -23,7 +23,7 @@ class BasicTests(unittest.TestCase):
     # executed after each test
     def tearDown(self):
         os.close(self.db_fd)
-        os.unlink(web.app.config['DATABASE'])
+        os.unlink(app.config['DATABASE'])
 
     # user authentication methods
 
