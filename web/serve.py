@@ -158,20 +158,20 @@ def add_book():
     db.session.add(new_book)
     db.session.commit()
     return redirect(url_for('book', bookid = book_id))
-    # else:
-    #     return render_template("login.html")
 
 # Book listing
 @app.route('/book/id/<bookid>')
 def book(bookid):
     return render_template('book_page.html')
 
+
 # User profile by username
 @app.route('/user/<username>')
 def user_byusername(username):
+    if username == None:
+        username = session.get('username')
     user = db.session.query(User).filter(User.username == username).first()
-    name = user.name
-    return render_template('users.html', user_name=name)
+    return render_template('users.html', user=user)
 
 # User profile by id
 @app.route('/user/id/<int:userid>')

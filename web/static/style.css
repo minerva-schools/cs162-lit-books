@@ -1,9 +1,12 @@
-/* test stuff out */
-/* text design */
+/* header text design */
 body {
   background-color: #eeeeee;
   padding: 0;
   margin: 0
+}
+
+p {
+  background-color: #eeeeee;
 }
 
 h1 {
@@ -34,7 +37,7 @@ h4 {
   font-size: 15px
 }
 
-/* User Name for Book Page inside Letter */
+/* User Name for Book Page */
 h5{
   font-family: Futura, sans-serif;
   font-weight: normal;
@@ -65,9 +68,6 @@ h7{
   line-height: 25px;
 }
 
-p {
-  background-color: #eeeeee;
-}
 
 /* components design */
 div {
@@ -76,9 +76,10 @@ div {
 }
 
 a {
-  text-decoration: underline;
+  text-decoration: none;
   text-align: right;
   color: #393e46;
+  text-decoration: underline;
 }
 
 ul {
@@ -114,8 +115,8 @@ input[type=submit] {
 }
 
 .bar {
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 18%;
+  margin-right: 18%;
 }
 
 .button {
@@ -137,7 +138,6 @@ input[type=submit] {
   background-color: #eeeeee
 }
 
-/* letter design */
 .comment{
   background-color: white;
   border-radius: 10px;
@@ -148,7 +148,6 @@ input[type=submit] {
   min-width: 60%
 }
 
-/* navigation bar */
 .topnav {
   overflow: hidden;
   background-color: #222831;
@@ -177,32 +176,8 @@ input[type=submit] {
   display: none;
 }
 
-/* login/signup styles */
-.login{
-  border-radius: 5px;
-  padding: 10px;
-  background-color: #eeeeee;
-  margin-bottom: 20px;
-}
 
-.login-box{
-  padding-left:25%;
-  padding-right:25%;
-}
-
-.login-form{
-    padding: 5%;
-    border-radius: 10px;
-    background-color:white;
-}
-
-.login-form .btnSubmit{
-    font-weight: 600;
-    background-color: #00adb5;
-    width: 100%;
-}
-
-/* overlay background */
+/* overlay for new book recievers */
 .overlay {
   position: fixed;
   top: 0;
@@ -213,7 +188,6 @@ input[type=submit] {
   background-color: rgba(0,0,0,0.5);
 }
 
-/* overlay for new book receivers */
 .modal {
     width: 600px;
     height: 500px;
@@ -229,7 +203,6 @@ input[type=submit] {
     z-index: 11; /* 1px higher than the overlay layer */
 }
 
-/* overlay for writing a letter */
 .modal2 {
     width: 1000px;
     height: 600px;
@@ -245,7 +218,7 @@ input[type=submit] {
     z-index: 11; /* 1px higher than the overlay layer */
 }
 
-/* overlay_add_book */
+/* overlay_add_book_1 */
 .modal3 {
     width: 600px;
     height: 540px;
@@ -277,91 +250,18 @@ input[type=submit] {
     z-index: 11; /* 1px higher than the overlay layer */
 }
 
-/* overlay_report */
-.modal5 {
-    width: 400px;
-    height: 104px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: -200px;
-    margin-top: -52px;
-    background-color: white;
-    border-radius: 10px;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-/* overlay_login */
-.modal6 {
-    width: 500px;
-    height: 450px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: -250px;
-    margin-top: -225px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-/* overlay_signup */
-.modal7 {
-    width: 500px;
-    height: 500px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: -250px;
-    margin-top: -250px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-/* overlay_add_new_receive */
-.modal8 {
-    width: 550px;
-    height: 340px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: -275px;
-    margin-top: -170px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: left;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
 /* For User Page */
 /* Float four columns side by side */
+
 .card-col {
   float: left;
   width: 20%;
   padding: 10px;
 }
 
-.card-col-2 {
-  float: left;
-  width: 33%;
-  padding: 10px;
-}
-
 .card-row {
   margin-left:12%;
   margin-right:12%
-}
-
-.card-row-2 {
-  margin-left:0;
-  margin-right:0
 }
 
 /* Clear floats after the columns */
@@ -381,15 +281,200 @@ input[type=submit] {
   height: 220px;
 }
 
-.card-2 {
-  padding: 16px;
-  text-align: center;
-  background-color: none;
-  color: #eeeeee;
-  border-radius: 10px;
-  height: 180px;
+/* Smaller Size Adjustment */
+@media screen and (min-width: 800px) and (max-width: 1100px) {
+  .card-col {
+    width: 25%;
+  }
+
+  .card-row {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
 }
 
+/* Smaller Size Adjustment */
+@media screen and (min-width: 600px) and (max-width: 800px) {
+
+
+  .card-col {
+    width: 33%;
+  }
+
+  .card-row {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+}
+
+/* Smaller Size Adjustment */
+@media screen and (max-width: 600px) {
+
+/* smaller size adjustment for the overlay notification bar */
+  .modal {
+      width: 400px;
+      height: 560px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-left: -200px;
+      margin-top: -280px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 2%;
+      text-align: left;
+      z-index: 11; /* 1px higher than the overlay layer */
+  }
+
+  .modal2 {
+      width: 460px;
+      height: 660px;
+      top: 50%;
+      left: 50%;
+      margin-left: -230px;
+      margin-top: -330px;
+      padding: 2%;
+  }
+
+
+  /* overlay_add_book_1 */
+    .modal3 {
+        width: 460px;
+        height: 560px;
+        top: 50%;
+        left: 50%;
+        margin-left: -230px;
+        margin-top: -280px;
+        padding: 2%;
+    }
+
+  a.button {
+    display: block;
+    position: relative;
+    min-width:80%
+  }
+
+  .card-col {
+    width: 50%;
+  }
+
+  .card-row {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+
+
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .bar{
+    padding: none;
+    align: center;
+    margin-left: 6%;
+    margin-right: 6%
+  }
+
+  .comment {
+    margin-left:5%;
+    margin-right:5%;
+    width:90%;
+  }
+
+  .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+  small {
+  display: block;
+  line-height: 1.428571429;
+  color: #999;
+  }
+
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+
+  h1 {
+    font-size: 80px
+  }
+
+  h2 {
+    font-size: 40px
+  }
+
+  h3 {
+    font-size:30 px
+  }
+
+  input{
+    font-size: 30px;
+  }
+
+  input[type=button],
+  input[type=submit] {
+    font-size: 30px;
+  }
+
+  a.button {
+    display: block;
+    position: relative;
+    min-width:80%
+  }
+
+  .topnav a {
+    font-size: 40px;
+  }
+
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .bar{
+    padding: none;
+    align: center;
+    margin-left: 6%;
+    margin-right: 6%
+  }
+
+  .comment {
+    margin-left:5%;
+    margin-right:5%;
+    width:90%;
+  }
+
+}
 
 .topnav.responsive a {
   float: none;
@@ -400,6 +485,7 @@ input[type=submit] {
 * {
   box-sizing: border-box;
 }
+
 
 /* Full-width textarea */
 /* Add styles to the form container */
@@ -459,180 +545,13 @@ form.bookbar::after {
   display: table;
 }
 
-/* Mid Size Adjustment */
-@media screen and (min-width: 800px) and (max-width: 1100px) {
-  .card-col {
-    width: 25%;
-  }
-
-  .card-row {
-    margin-left: 8%;
-    margin-right: 8%;
-  }
-}
-
-/* Mid_2 Size Adjustment */
-@media screen and (min-width: 600px) and (max-width: 800px) {
-
-  .card-col {
-    width: 33%;
-  }
-
-  .card-row {
-    margin-left: 8%;
-    margin-right: 8%;
-  }
-}
-
-/* Small Size Adjustment */
-@media screen and (max-width: 600px) {
-
-/* overlay for new book receivers */
-  .modal {
-      width: 400px;
-      height: 560px;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      margin-left: -200px;
-      margin-top: -280px;
-      background-color: white;
-      border-radius: 10px;
-      padding: 2%;
-      text-align: left;
-      z-index: 11; /* 1px higher than the overlay layer */
-  }
-
-/* overlay for writing a letter */
-  .modal2 {
-      width: 460px;
-      height: 660px;
-      top: 50%;
-      left: 50%;
-      margin-left: -230px;
-      margin-top: -330px;
-      padding: 2%;
-  }
-
-/* overlay_add_book */
-   .modal3 {
-       width: 460px;
-       height: 560px;
-       top: 50%;
-       left: 50%;
-       margin-left: -230px;
-       margin-top: -280px;
-       padding: 2%;
-   }
-
-   /* overlay_add_book_done */
-   .modal4 {
-       width: 450px;
-       height: 440px;
-       top: 50%;
-       left: 50%;
-       margin-left: -225px;
-       margin-top: -220px;
-       padding: 10px;
-   }
-
-
-  /* overlay_login */
-  .modal6 {
-      width: 450px;
-      height: 450px;
-      top: 50%;
-      left: 50%;
-      margin-left: -225px;
-      margin-top: -225px;
-      padding: 2%;
-  }
-
-  /* overlay_signup */
-  .modal7 {
-      width: 450px;
-      height: 550px;
-      top: 50%;
-      left: 50%;
-      margin-left: -225px;
-      margin-top: -275px;
-      padding: 2%;
-  }
-
-  /* overlay_add_new_receive */
-  .modal8 {
-      width: 450px;
-      top: 50%;
-      left: 50%;
-      margin-left: -225px;
-      padding: 10px;
-  }
-
-  a.button {
-    display: block;
-    position: relative;
-    min-width:80%
-  }
-
-  .card-col {
-    width: 50%;
-  }
-
-  .card-row {
-    margin-left: 8%;
-    margin-right: 8%;
-  }
-
-/* navigation bar */
-  .topnav a:not(:first-child) {
-    display: none;
-  }
-
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-
-  .topnav.responsive {
-    position: relative;
-  }
-
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-  .bar{
-    padding: none;
-    align: center;
-    margin-left: 5%;
-    margin-right: 5%
-  }
-
-  .comment {
-    margin-left:5%;
-    margin-right:5%;
-    width:90%;
-  }
-
-  .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
-
-  small {
-  display: block;
-  line-height: 1.428571429;
-  color: #999;
-  }
-
-}
-
 #wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#overlay_new_receiver {
+#overlay_new_reciever {
   display: none
 }
 
@@ -644,44 +563,10 @@ form.bookbar::after {
   display: none
 }
 
-#overlay_add_book{
+#overlay_add_book_1{
   display: none
 }
 
 #overlay_add_book_done{
   display: none
-}
-
-#overlay_report{
-  display: none
-}
-
-#overlay_signup{
-  display: none
-}
-
-#overlay_add_new_receive{
-  display: none
-}
-
-/* Smaller Size Adjustment for login box */
-@media screen and (max-width: 800px){
-  .login-box{
-    padding-left:0;
-    padding-right:0%
-  }
-
-.btnSubmit{
-    width: 100%;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-/* Smaller Size Adjustment */
-@media screen and (max-width: 800px){
-  .login-box{
-    padding-left:0;
-    padding-right:0%
-  }
 }
