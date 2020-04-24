@@ -7,35 +7,23 @@ from web import app, db
 import app
 
 
-import os
-import tempfile
-import unittest
-import pytest
-
-from web import app, db
-import app
-
-
 class BasicTests(unittest.TestCase):
 
     # executed prior to each test
     #creates a new test client and initializes a new databade
     def setUp(self):
-        self.db_fd, app.app.config['DATABASE'] = tempfile.mkstemp()
-        app.config['TESTING'] = True
-        app.config['DEBUG'] = False
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + TEST_DB
-        self.app = app.test_client()
+        self.db_fd, web.app.config['DATABASE'] = tempfile.mkstemp()
+        app.testing = True
+        self.app = web.app.test_client()
         db.drop_all()
         db.create_all()
-
 
 
 
     # executed after each test
     def tearDown(self):
         os.close(self.db_fd)
-        os.unlink(app.app.config['DATABASE'])
+        os.unlink(web.app.config['DATABASE'])
 
     # user authentication methods
 
