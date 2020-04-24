@@ -34,7 +34,7 @@ def booksearch():
     return render_template('index_signed_in.html')
 
 # Index page
-@app.route('/')
+@app.route('/index')
 def index():
     # Redirect to booksearch if logged-in
     file1 = os.path.join(app.config['UPLOAD_FOLDER'], 'process.png')
