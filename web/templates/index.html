@@ -14,9 +14,9 @@
 
   <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
-    <a href="{{ url_for('index')}}">Paper Trail</a>
+    <a href="{{ url_for('booksearch')}}">Paper Trail</a>
     <a href="{{ url_for('login')}}">Login</a>
-    <a href="{{ url_for('about')}}l">About</a>
+    <a href="{{ url_for('about')}}">About</a>
     <a href="{{ url_for('sample')}}">Sample</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars" aria-hidden="true"></i>
@@ -76,7 +76,7 @@
       </div>
 
     <div id="wrapper">
-      <a href="login.html" class="button" style=margin:10px>Signup/Login to Get Started!</a>
+      <a href="{{url_for('login')}}" class="button" style=margin:10px>Signup/Login to Get Started!</a>
     </div>
     <!-- Elena: This should only appear for visitors that are not signed in.  -->
 
