@@ -14,7 +14,7 @@
 
   <!-- navigation bar -->
   <div class="topnav" id="myTopnav">
-    <a href="{{ url_for('index')}}">Paper Trail</a>
+    <a href="{{ url_for('index')}}" class="active">Paper Trail</a>
     <a href="{{ url_for('register')}}">Sign Up</a>
     <a href="{{ url_for('about')}}">About</a>
     <a href="{{ url_for('sample')}}">Sample</a>
@@ -46,7 +46,7 @@
                     <input type="submit" class="btnSubmit" value="Login" / style="padding: 10px; margin:0;">
                     <div style="text-align: center; padding:40px">
                         Haven't registered?
-                        <a href="r{{ url_for('register')}}">
+                        <a href="{{ url_for('register')}}">
                           Create an account </a>
                     </div>
                 </form>
