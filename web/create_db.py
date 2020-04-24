@@ -44,6 +44,13 @@ class Letter(db.Model):
     def __repr__(self):
         return "<Letter(id={0}, book_id={1}, user_id={2}, date={3}, message={4})".format(self.id, self.book_id, self.user_id, self.date, self.message)
 
+class Current_Owner(db.Model):
+    __tablename__ = "current_owner"
+    book_id = Column(String, ForeignKey('books.id'), primary_key=True)
+    current_owner_id = Column(Integer, ForeignKey('users.id'))
+    books = relationship('Book')
+    users = relationship('User')
+
 class BookTransactions(db.Model):
     """Table containing all book transactions (transfer of ownership between
     users)"""
@@ -52,10 +59,9 @@ class BookTransactions(db.Model):
     date = Column(Date)
     month = Column(Integer)
     book_id = Column(String, ForeignKey('books.id'))
-    from_user_id = Column(Integer, ForeignKey('users.id'))
     to_user_id = Column(Integer, ForeignKey('users.id'), index=True) #indexed for quick lookup of all books an owner holds
     books = relationship('Book')
-    users = relationship('Users')
+    users = relationship('User')
 
 # Initialize database
 db.create_all()

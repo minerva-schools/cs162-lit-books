@@ -5,7 +5,7 @@ import os
 import random
 
 from web import db,app
-from .create_db import User, Book, Letter
+from .create_db import User, Book, Letter, Current_Owner
 import hashlib
 
 
@@ -156,6 +156,7 @@ def add_book():
 
     new_book = Book(title=title, author_name=author, id=book_id, owner=user.id)
     db.session.add(new_book)
+    db.session.add(Current_Owner(book_id=book_id,current_owner_id=user.id))
     db.session.commit()
     return redirect(url_for('book', bookid = book_id))
 
