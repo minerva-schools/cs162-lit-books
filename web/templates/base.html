@@ -24,6 +24,7 @@
       {% endif %}
       -->
       <a href="{{ url_for('login')}}">Login</a>
+      <a href="{{ url_for('user_byusername',username = session['username']) }}">My page</a>
       <a href="{{ url_for('about')}}">About</a>
       <a href="{{ url_for('sample')}}">Sample</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
