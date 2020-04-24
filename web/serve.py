@@ -37,7 +37,9 @@ def booksearch():
 @app.route('/')
 def index():
     # Redirect to booksearch if logged-in
-    return redirect(url_for('booksearch'))
+    file1 = os.path.join(app.config['UPLOAD_FOLDER'], 'process.png')
+    file2 = os.path.join(app.config['UPLOAD_FOLDER'], 'six.png')
+    return redirect(url_for('index.html'), file1=file1, file2=file2)
 
 # About page
 @app.route('/about')
