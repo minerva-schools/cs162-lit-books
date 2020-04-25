@@ -78,9 +78,11 @@
 
   <!-- Finish Reading Button -->
   <!-- Elena: This button should disappear when the user add the letter -->
+  {% if letters_count == 0 %}
   <div id="wrapper">
     <button class="button" onclick="on_finish()" style=margin:10px>I've finished reading the book! 😎</button>
   </div>
+  {% endif %}
 
   <br><br>
 
