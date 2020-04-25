@@ -181,15 +181,25 @@ def add_book():
     db.session.commit()
     return redirect(url_for('book', bookid = book_id))
 
+#add existed book
+@app.route('/add_existed_book/<bookid>', methods=['POST',"GET"])
+@login_required
+def add_existed_book(bookid):
+    username = session.get('username')
+    user = db.session.query(User).filter(User.username == username).first()
+    date = datetime.utcnow()
+    month = datetime.utcnow().month
+
+    db.session.add(Current_Owner(book_id=bookid,current_owner_id=user.id,orig_owner=0))
+    db.session.add(BookTransactions(date=date, month=month, book_id=bookid,to_user_id=user.id))
+    db.session.commit()
+    return redirect(url_for('book', bookid=bookid))
+
 #add a new letter
 @app.route('/add_letter/<bookid>', methods=['POST'])
+@login_required
 def add_letter(bookid):
     username = session.get('username')
-
-    if username == None:
-        flash ('Please log in to use')
-        return redirect(url_for('login'))
-
     user = db.session.query(User).filter(User.username == username).first()
     message = request.form['msg']
     date = datetime.utcnow()
@@ -201,6 +211,7 @@ def add_letter(bookid):
 
 #show letter form
 @app.route('/letter/<bookid>')
+@login_required
 def letter(bookid): 
     return render_template('letter.html', bookid=bookid)
 
@@ -243,6 +254,7 @@ def user_byusername(username):
 
 # User profile by id
 @app.route('/user/id/<int:userid>')
+@login_required
 def user_byid(userid):
     return render_template('users.html')
 
