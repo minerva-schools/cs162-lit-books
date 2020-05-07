@@ -15,15 +15,12 @@
     <!-- navigation bar -->
     <nav class="topnav" id="myTopnav">
       <a href="{{ url_for('index')}}" class="active">Paper Trails</a>
-      <!-- once login decorator is working
-      {% if g.user %}
-        <span>{{ g.user['username'] }}</span>
+      {% if "username" in session %}
+      <!--<span>{{ session["username"] }}</span>-->
         <a href="{{ url_for('logout') }}">Log Out</a>
       {% else %}
         <a href="{{ url_for('login')}}">Login</a>
       {% endif %}
-      -->
-      <a href="{{ url_for('login')}}">Login</a>
       <a href="{{ url_for('user_byusername',username = session['username']) }}">My page</a>
       <a href="{{ url_for('about')}}">About</a>
       <a href="{{ url_for('sample')}}">Sample</a>

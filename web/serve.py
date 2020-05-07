@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session, g
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func, desc
 from datetime import datetime
@@ -10,7 +10,7 @@ from functools import wraps
 from web import db,app
 from .create_db import User, Book, Letter, Current_Owner, BookTransactions
 import hashlib
-
+ 
 
 #####################################################
 # Initiate Flask app
@@ -72,11 +72,18 @@ def sample():
 def about():
     return render_template('about.html')
 
+# About page when logged in
+@app.route('/user/about')
+def about_login():
+    return render_template('about.html')
+
+
 #logout
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
-    session.pop('username', None)
+    #session['username'] = None)
     session.clear()
+    g.user = None
     flash('You were logged out')
     return redirect(url_for('login'))
 
@@ -93,7 +100,8 @@ def login():
             salt = user.salt
             if user.password == hash_password(str(password+salt)):
                 session['username'] = user.username
-                flash('Login sucessfully')
+                #g.user = user
+                #flash('Login sucessfully')
                 return redirect(url_for('user_byusername', username=username))
             else:
                 flash('Wrong password')
@@ -192,6 +200,7 @@ def add_existed_book(bookid):
 
     db.session.add(Current_Owner(book_id=bookid,current_owner_id=user.id,orig_owner=0))
     db.session.add(BookTransactions(date=date, month=month, book_id=bookid,to_user_id=user.id))
+    
     db.session.commit()
     return redirect(url_for('book', bookid=bookid))
 
@@ -225,14 +234,13 @@ def book(bookid):
                                 ).filter(Letter.book_id==bookid
                                 ).order_by(desc(Letter.date)
                                 ).all()
-    return render_template('book_page.html', book = book, book_owner=book_owner,letters=letters, bookid=bookid)
+    letters_count=len(letters)
+    return render_template('book_page.html', book = book, book_owner=book_owner,letters=letters, bookid=bookid, letters_count=letters_count)
 
 # User profile by username
 @app.route('/user/<username>')
 @login_required
 def user_byusername(username):
-    if username == None:
-        return render_template('login.html')
     user = db.session.query(User).filter(User.username == username).first()
     user_id = user.id
     nowned = db.session.query(Book
